@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "692522208889",
+    "project_id": "fabrica-do-multiverso",
+    "storage_bucket": "fabrica-do-multiverso.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692522208889:android:fa1b71c1c2bec5ab668ea8",
+        "android_client_info": {
+          "package_name": "com.example.fabrica_do_multiverso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692522208889-b331n67335nf0ql3gi6ca0e4cvjpdlqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTITqQVSsHFbP0cmytvo5JibNm03dR4t0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692522208889-b331n67335nf0ql3gi6ca0e4cvjpdlqq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "692522208889-hnsjlkjmsu7b94t5eorcgdgfrdjt4pkm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fabricaDoMultiverso"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

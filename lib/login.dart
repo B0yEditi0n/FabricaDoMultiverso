@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './loginScript.dart';
+import 'backend/loginScript.dart';
 
 class loginPage extends StatefulWidget {
   @override
@@ -10,6 +10,8 @@ class loginPage extends StatefulWidget {
 class loginPageScreen extends State<loginPage> {
   @override
   var clLogin = new startLogin();
+  var inputEmail;
+  var inputSenha;
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,20 +22,64 @@ class loginPageScreen extends State<loginPage> {
           onPressed: null,
           ),
           title: const Text('Fabrica do Multiverso'),
-          actions: const [
+          actions: [
             IconButton(
               icon: Icon(Icons.search),
               tooltip: 'Search',
-              onPressed: null,
+              onPressed: clLogin.btnLogin(context),
+                // clLogin.btnLogin(context),
+                
             ),
           ],
         ),
         
 
-        body: Center(
-          child: Text( clLogin.userName('Caio') ),
-          //  
-        ),
+        body: Container(
+          // Estilo do Countainer
+          width: double.infinity,
+          height: 300,
+          color: const Color.fromARGB(78, 1, 56, 175),
+
+          child: Column(children: [
+            const Padding(padding: EdgeInsets.only(top: 30)),
+
+            const Text( 'Login de Usuário', 
+              textAlign: TextAlign.center, ),
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Nome de Usuário',
+              ),
+              obscureText: false,
+              controller: inputEmail,
+            ),
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Senha de Usuário',
+              ),
+              obscureText: true,
+              controller: inputSenha,
+            ),
+
+            ElevatedButton(
+
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                  (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return Theme.of(context).colorScheme.primary.withOpacity(0.5);
+                    }
+                    return null; // Use the component's default.
+                  },
+                ),
+              ),
+              onPressed: () => clLogin.inputLogin( inputEmail, inputSenha),
+              child:
+                const Text('Efetuar login'),  
+                
+            )
+          ],
+          )
+        ),        
       );
   }
 }
