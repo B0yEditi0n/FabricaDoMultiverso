@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import './backend/homeScript.dart';
@@ -8,7 +10,7 @@ class homePage extends StatefulWidget {
 }
 
 class homeTela extends State<homePage>{
-  var clhome = new homeScript();
+  var clhome = homeScript();
 
   @override
   Widget build(BuildContext context){
@@ -20,9 +22,17 @@ class homeTela extends State<homePage>{
         title: Text('Menu Principal'),
                     ),
       drawer: Container(color: Colors.red, ),
-      
-      body: Container(
-        
+      body: Center(
+        child: Column(
+          children: <Widget> [
+            clhome.wdgButton('Habilidades'),
+            clhome.wdgButton('Defesas'),
+            clhome.wdgButton('Vantagens'),
+            clhome.wdgButton('Poderes'),
+            clhome.wdgButton('Pericias'),
+            clhome.wdgButton('Complicações'),
+          ],
+        )    
       ),
     );
   }

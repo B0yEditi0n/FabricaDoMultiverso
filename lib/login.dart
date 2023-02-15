@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'backend/loginScript.dart';
 
@@ -9,9 +10,9 @@ class loginPage extends StatefulWidget {
 
 class loginPageScreen extends State<loginPage> {
   @override
-  var clLogin = new startLogin();
-  var inputEmail;
-  var inputSenha;
+  var clLogin = startLogin();
+  var inputEmail = TextEditingController();
+  var inputSenha = TextEditingController();
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +73,14 @@ class loginPageScreen extends State<loginPage> {
                   },
                 ),
               ),
-              onPressed: () => clLogin.inputLogin( inputEmail, inputSenha),
+              onPressed: () {
+                if(clLogin.inputLogin(inputEmail.text, inputSenha.text)){
+                  Navigator.popAndPushNamed(context, '/telaInicio');
+                };
+                
+                
+              },
+              // clLogin.inputLogin( inputEmail, inputSenha),
               child:
                 const Text('Efetuar login'),  
                 

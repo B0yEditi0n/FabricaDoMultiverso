@@ -12,7 +12,10 @@ class startLogin{
   inputLogin(String email, String senha ){
     //return
     if((email != null) && (senha != null)){
-      goLoginPage = true;
+      return true;
+    }
+    else{
+      return false;
     }
     
   }
@@ -22,12 +25,11 @@ class startLogin{
   }
   
   btnLogin(context){
-    Navigator.pushReplacementNamed(context, '/telaInicio');
-    if (this.goLoginPage){
-       
-    }
     
-
+    // if (this.goLoginPage){
+    //    return ('/telaInicio');
+    // };
+  
   }
 }
 
