@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 import './backend/homeScript.dart';
@@ -10,27 +8,37 @@ class homePage extends StatefulWidget {
 }
 
 class homeTela extends State<homePage>{
-  var clhome = homeScript();
-
+  var clhome = homeBuild();
   @override
   Widget build(BuildContext context){
+    clhome.inicializacao(context);
     //Inicialização da Calsse 
     
     //clhome.inicializacao(context);
-    return Scaffold(      
+    return Scaffold(    
+      backgroundColor: const Color.fromARGB(30, 30, 30, 92),  
       appBar: AppBar(
-        title: Text('Menu Principal'),
-                    ),
-      drawer: Container(color: Colors.red, ),
-      body: Center(
-        child: Column(
+        title: const Text('Menu Principal'),
+        ),
+      drawer: Container(
+        color: const Color.fromARGB(255, 13, 14, 92),
+        child: 
+          
+          const Text(
+            'Titulo', 
+            selectionColor: Colors.white,
+            
+            )
+        ),
+      body: Center(        
+        child: Column(          
           children: <Widget> [
-            clhome.wdgButton('Habilidades'),
-            clhome.wdgButton('Defesas'),
-            clhome.wdgButton('Vantagens'),
-            clhome.wdgButton('Poderes'),
-            clhome.wdgButton('Pericias'),
-            clhome.wdgButton('Complicações'),
+            clhome.wdgButton('Habilidades', '/habilidadesTela'),
+            clhome.wdgButton('Defesas', '/loginTela'),
+            clhome.wdgButton('Vantagens', ''),
+            clhome.wdgButton('Poderes', ''),
+            clhome.wdgButton('Pericias', ''),
+            clhome.wdgButton('Complicações', ''),
           ],
         )    
       ),
@@ -38,4 +46,52 @@ class homeTela extends State<homePage>{
   }
 
 
+}
+
+
+// Aproveitamento de Código
+
+class homeBuild {
+
+  var contexto;
+
+  inicializacao(context){
+    // return (Navigator.pushReplacementNamed(context, '/loginTela'));  
+    contexto = context;
+  }
+
+  wdgButton(String txtTitle, String rotaTela){
+    return( 
+      Container(
+        child:
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0,15,0,0),
+          child: SizedBox(   
+            width: 6000,       
+            height: 30,
+            
+            //style: BoxDecoration(color:
+            child: 
+              TextButton(       
+                style: const ButtonStyle(               
+   
+                ),
+                child: 
+                Text(
+                  style: const TextStyle(
+                    fontFamily: 'Anton',
+                    color: Colors.white,                      
+                  ),//wdgButtonStyle(),
+                  txtTitle
+                  ),
+                onPressed: (){
+                  Navigator.popAndPushNamed(contexto, rotaTela);
+
+                },
+              ),
+          ),
+        ),      
+      )
+    );
+  }
 }

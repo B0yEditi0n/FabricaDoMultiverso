@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-
 //Tela de Login
 import './login.dart';
 import './home.dart';
+import './habilidades.dart';
 
 
 
@@ -21,19 +21,16 @@ Future<void> main() async {
   runApp(MaterialApp(
     title: "",
     debugShowCheckedModeBanner: true,
+    // theme: new ThemeData(
+    //   scaffoldBackgroundColor: const Color.fromRGBO(30, 30, 30, 1)),
 
     initialRoute: '/loginTela',
     routes: {
       '/loginTela' : (context) => loginPage(),
       /*'/cadastroTela': (context) => const TelaCadastro(),*/
       '/telaInicio': (context) => homePage(),
-      /*'/listadeusuarios': (context) => const ListaUsuarios(),
-      '/detalhesContaUsuario': (context) => const detalhesContaUsuario(),
-      '/configurausu': (context) => const configuraUsuario(),
-      '/bloqueioAparelho': (context) => const BloqueioAparelho(),
-      '/sobreNos': (context) => const SobreNos(),
-      '/configuraTela': (context) => const ConfigTela(),
-      '/contribua': (context) => const Contribua(),*/
+      '/habilidadesTela': (context) => habilidadesTela(),
+      
     },
   ));
 }
