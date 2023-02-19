@@ -10,70 +10,56 @@ class HabilidadeBuilder {
           children: [               
             // Caixa de Habilidade          
             Align(
-              // child: Positioned(
-                child: Container(                       
-                  // Tamanho e Proporção
-                  alignment: Alignment.center,
-                  margin: const EdgeInsets.only(top: 15),
-                  width: 200,
-                  height: 100,
-                                            
-                  // Decoração
-                  decoration: BoxDecoration(
-                    // color: Colors.white,
-                    // border: Border.all(color: Colors.black),
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 5,
-                      style: BorderStyle.solid
-                    ),
-    
-                    borderRadius: BorderRadius.circular(10),
+              child: Container( // Estilização da Borda Preta        
+                // Tamanho e Proporção                  
+                alignment: Alignment.center,
+                margin: const EdgeInsets.only(top: 15),                  
+                width: 200,
+                height: 100,
+                                          
+                // Decoração
+                decoration: BoxDecoration(                    
+                  // color: Colors.white,
+                  // border: Border.all(color: Colors.black),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 5,
+                    style: BorderStyle.solid
                   ),
-    
-                  child: Column(children: [
-    
-                    Center(                                
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 13),
-                        child: Row(                        
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [                                    
-                              Container(
-                                child: Column(
-                                  children: [
-                                    const Text('Bônus'),
-                                    Text(bonus)
-                                  ]                              
-                                ),
-                              ),                                 
-                              // Espaço em Branco
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              Column(
-                                children: [
-                                  const Text('Valor Total'),
-                                  Text(total)
-                                ],
-                              ),
-                            
-                          ]
-                        ),
-                      ),
-                    ),      
-    
-                  ],),
-                  
+  
+                  borderRadius: BorderRadius.circular(10),
                 ),
-              // ),
+  
+                child: Column(                  
+                  mainAxisAlignment: MainAxisAlignment.center, 
+                  children: [
+                    Row(                        
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,          
+                      children: [                                    
+                        Container(                          
+                          child: Column(
+                            children: [
+                              const Text('Bônus'),
+                              Text(bonus)
+                            ]                              
+                          ),
+                        ),                                 
+                        Column(
+                          children: [
+                            const Text('Valor Total'),
+                            Text(total)
+                          ],
+                        ),
+                      ]
+                    ),
+                  ],
+                ),
+              ),
             ),
             //FIM: Caixa de Habilidade
     
             //  Barra de Titulo
-            Align(
-              // child: Positioned(
-                // top: 0,                    
+            Align(            
                 child:
                 Container(                        
                   decoration: BoxDecoration(
