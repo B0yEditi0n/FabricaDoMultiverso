@@ -25,11 +25,11 @@ class loginPageScreen extends State<loginPage> {
           title: const Text('Fabrica do Multiverso'),
           actions: [
             IconButton(
-              icon: Icon(Icons.search),
+              icon: const Icon(Icons.search),
               tooltip: 'Search',
               onPressed: clLogin.btnLogin(context),
                 // clLogin.btnLogin(context),
-                
+  
             ),
           ],
         ),
