@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:numberpicker/numberpicker.dart';
 
 class HabilidadeBuilder {
-  habilidadeCaixa(String titulo, String bonus, String total){
+  habilidadeCaixa(context, String titulo, String bonus, String total){
     return(
       Padding(
       padding: EdgeInsets.only(top: 15),
@@ -47,7 +49,12 @@ class HabilidadeBuilder {
                         Column(
                           children: [
                             const Text('Valor Total'),
-                            Text(total)
+                            TextButton(
+                              onPressed: () => {
+                                popUpNumberPicker(context, titulo, int.parse(total))
+                              },
+                              child: Text(total))
+                            //Text(total)
                           ],
                         ),
                       ]
@@ -87,5 +94,40 @@ class HabilidadeBuilder {
       ),
       )
     );
+  }
+  Future<void> popUpNumberPicker(contexto, String titulo, int AtualN) async{
+    // int valueHability = AtualN;
+    return showDialog<void>(
+    context: contexto,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      var _currentValue = AtualN;
+      return AlertDialog(
+        title: Text('Valor de ' + titulo),
+        content: SingleChildScrollView(
+          
+          child: ListBody(
+            children: <Widget>[
+              NumberPicker(              
+                value: _currentValue,
+                minValue: 0,
+                maxValue: 50,
+                onChanged: (value) => _currentValue = value),
+              ),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Approve'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+
   }
 }

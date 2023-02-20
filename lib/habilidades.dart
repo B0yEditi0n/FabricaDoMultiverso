@@ -40,14 +40,14 @@ class _habilidadesTelaState extends State<habilidadesTela> {
               child: Column(                     
                 
                 children: <Widget> [
-                  buildHanilidade.habilidadeCaixa('Força', '10', '10'),
-                  buildHanilidade.habilidadeCaixa('Vigor', '10', '10'),
-                  buildHanilidade.habilidadeCaixa('Agilidade', '10', '10'),
-                  buildHanilidade.habilidadeCaixa('Destreza', '10', '10'),              
-                  buildHanilidade.habilidadeCaixa('Luta', '10', '10'),
-                  buildHanilidade.habilidadeCaixa('Intelecto', '10', '10'),
-                  buildHanilidade.habilidadeCaixa('Prontidão', '10', '10'),
-                  buildHanilidade.habilidadeCaixa('Presença', '10', '10'),              
+                  buildHanilidade.habilidadeCaixa(context, 'Força', '10', '10'),
+                  buildHanilidade.habilidadeCaixa(context, 'Vigor', '10', '10'),
+                  buildHanilidade.habilidadeCaixa(context, 'Agilidade', '10', '10'),
+                  buildHanilidade.habilidadeCaixa(context, 'Destreza', '10', '10'),              
+                  buildHanilidade.habilidadeCaixa(context, 'Luta', '10', '10'),
+                  buildHanilidade.habilidadeCaixa(context, 'Intelecto', '10', '10'),
+                  buildHanilidade.habilidadeCaixa(context, 'Prontidão', '10', '10'),
+                  buildHanilidade.habilidadeCaixa(context, 'Presença', '10', '10'),              
                 ],
               ),
             ) 
