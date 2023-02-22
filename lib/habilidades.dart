@@ -3,13 +3,21 @@ import 'widgets/habilidadeBuilder.dart';
 
 class habilidadesTela extends StatefulWidget {
   // const habilidadesTela({super.key});
+
+  // habilidadesTela(this.stream);
+  // final Stream<int> stream;
+
   @override
-  State<habilidadesTela> createState() => _habilidadesTelaState();
+  State<habilidadesTela> createState() => _habilidadesTelaState();  
 }
 
 class _habilidadesTelaState extends State<habilidadesTela> {
-  var buildHanilidade = HabilidadeBuilder();
+  var buildHabilidade = HabilidadeBuilder();
+  
   @override
+  // void initState() {
+  //   super.initState()
+  // }
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(30, 30, 30, 92),  
@@ -39,15 +47,15 @@ class _habilidadesTelaState extends State<habilidadesTela> {
               
               child: Column(                     
                 
-                children: <Widget> [
-                  buildHanilidade.habilidadeCaixa(context, 'Força', '10', '10'),
-                  buildHanilidade.habilidadeCaixa(context, 'Vigor', '10', '10'),
-                  buildHanilidade.habilidadeCaixa(context, 'Agilidade', '10', '10'),
-                  buildHanilidade.habilidadeCaixa(context, 'Destreza', '10', '10'),              
-                  buildHanilidade.habilidadeCaixa(context, 'Luta', '10', '10'),
-                  buildHanilidade.habilidadeCaixa(context, 'Intelecto', '10', '10'),
-                  buildHanilidade.habilidadeCaixa(context, 'Prontidão', '10', '10'),
-                  buildHanilidade.habilidadeCaixa(context, 'Presença', '10', '10'),              
+                children: <Widget> [                  
+                  buildHabilidade.habilidadeCaixa(context, 'Força', 0, 0),
+                  buildHabilidade.habilidadeCaixa(context, 'Vigor', 0, 0),
+                  buildHabilidade.habilidadeCaixa(context, 'Agilidade', 0, 0),
+                  buildHabilidade.habilidadeCaixa(context, 'Destreza', 0, 0),              
+                  buildHabilidade.habilidadeCaixa(context, 'Luta', 0, 0),
+                  buildHabilidade.habilidadeCaixa(context, 'Intelecto', 0, 0),
+                  buildHabilidade.habilidadeCaixa(context, 'Prontidão', 0, 0),
+                  buildHabilidade.habilidadeCaixa(context, 'Presença', 0, 0),              
                 ],
               ),
             ) 
@@ -57,3 +65,4 @@ class _habilidadesTelaState extends State<habilidadesTela> {
     );
   }
 }
+

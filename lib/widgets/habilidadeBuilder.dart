@@ -1,12 +1,21 @@
+
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:numberpicker/numberpicker.dart';
+import '../habilidades.dart';
 
-class HabilidadeBuilder {
-  habilidadeCaixa(context, String titulo, String bonus, String total){
+// StreamController<int> streamController = StreamController<int>();
+
+class HabilidadeBuilder{  
+
+  var referenc = passParamet();   
+
+  Widget  habilidadeCaixa(context, String titulo,  int bonus, int total){   
+    
     return(
       Padding(
-      padding: EdgeInsets.only(top: 15),
+      padding: const EdgeInsets.only(top: 15),
       child: (
         Stack(
           children: [               
@@ -40,9 +49,9 @@ class HabilidadeBuilder {
                       children: [                                    
                         Container(                          
                           child: Column(
-                            children: [
-                              const Text('Bônus'),
-                              Text(bonus)
+                            children: const [
+                              Text('Bônus'),
+                              //Text(bonus)
                             ]                              
                           ),
                         ),                                 
@@ -50,10 +59,16 @@ class HabilidadeBuilder {
                           children: [
                             const Text('Valor Total'),
                             TextButton(
-                              onPressed: () => {
-                                popUpNumberPicker(context, titulo, int.parse(total))
+                              onPressed: () => {                                
+                                this.referenc.paramet = total,
+                                this.popUpNumberPicker(context, titulo),
+                                // total = await referenc.thisValue(),
+                                print (total),
+                                this.referenc.paramet
+                                
                               },
-                              child: Text(total))
+                              child: Text(total.toString())
+                            )
                             //Text(total)
                           ],
                         ),
@@ -87,7 +102,7 @@ class HabilidadeBuilder {
                 ),
               // ),
             ),
-            //  Barra de Titulo
+            //  Fim; Barra de Titulo
           ],
         )
     
@@ -95,39 +110,109 @@ class HabilidadeBuilder {
       )
     );
   }
-  Future<void> popUpNumberPicker(contexto, String titulo, int AtualN) async{
-    // int valueHability = AtualN;
-    return showDialog<void>(
-    context: contexto,
-    barrierDismissible: false, // user must tap button!
-    builder: (BuildContext context) {
-      var _currentValue = AtualN;
-      return AlertDialog(
-        title: Text('Valor de ' + titulo),
+
+  Future<void> showInformationDialog(BuildContext context) async {
+    var _currentValue;
+    return await showDialog(
+        context: context,
+        builder: (context) {
+          // bool isChecked = false;
+        
+        return StatefulBuilder(builder: (context, setState) {
+        
+        return AlertDialog(
+
+        title: Text('Valor de '),
         content: SingleChildScrollView(
-          
           child: ListBody(
             children: <Widget>[
               NumberPicker(              
                 value: _currentValue,
                 minValue: 0,
                 maxValue: 50,
-                onChanged: (value) => _currentValue = value),
+                onChanged: (value) => setState(() => _currentValue = value),
+                  
+              
               ),
             ],
           ),
         ),
         actions: <Widget>[
           TextButton(
-            child: const Text('Approve'),
+            child: const Text('Ok'),
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
         ],
+      
+            );
+          });
+        });
+        }
+
+
+
+  Future<void> popUpNumberPicker(BuildContext contexto, String titulo)async {
+    
+    // int valueHability = AtualN;
+    //var currentValue = 0;
+    return showDialog(
+    context: contexto,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+    return StatefulBuilder(builder: (context, setState) {   
+      return AlertDialog(
+        title: Text('Valor de ' + titulo),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              NumberPicker(              
+                value: this.referenc.paramet,
+                minValue: 0,
+                maxValue: 50,
+                onChanged: (value) => setState(() => this.referenc.setValor(value)),            
+              
+              ),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text('Ok'),
+            onPressed: () {
+              Navigator.of(context).pop();
+              
+
+            },
+          ),
+        ],
       );
     },
+    );
+    }
   );
-
   }
+  
 }
+
+//######################################################################
+//  Utilidade de Classes
+//######################################################################
+
+class passParamet{
+  var paramet;
+
+  setValor(newValue)async{
+    this.paramet = newValue;
+  }
+  thisValue()async{
+    return this.paramet;
+  }
+
+}
+
+// class buildPopupsUtily extends State<habilidadesTela>  {
+//   @override
+//   return()
+// }

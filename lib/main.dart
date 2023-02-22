@@ -10,7 +10,6 @@ import './habilidades.dart';
 
 
 
-
 Future<void> main() async {
 
   //Firebase integração
@@ -30,6 +29,7 @@ Future<void> main() async {
       /*'/cadastroTela': (context) => const TelaCadastro(),*/
       '/telaInicio': (context) => homePage(),
       '/habilidadesTela': (context) => habilidadesTela(),
+      
       
     },
   ));
