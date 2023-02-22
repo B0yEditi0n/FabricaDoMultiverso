@@ -5,14 +5,37 @@ import 'dart:convert';
 import 'package:numberpicker/numberpicker.dart';
 import '../habilidades.dart';
 
-// StreamController<int> streamController = StreamController<int>();
+StreamController<int> streamController = StreamController<int>();
 
 class HabilidadeBuilder{  
 
   var referenc = passParamet();   
 
   Widget  habilidadeCaixa(context, String titulo,  int bonus, int total){   
-    
+    final Stream<int> stream; 
+
+    return StatefulBuilder(builder: (context, setState) {
+      void initState(){
+        // super.initState();
+        // widget.stram.listen((index){
+        //   setStateValor('')
+        //   setStateValor()
+        // })
+      }
+      void setStateValor(String tipo, int newValor){
+        if(tipo == 'B' || tipo == 'b'){
+          setState(){
+            bonus = newValor;
+          }  
+        }
+        else if(tipo == 'T' || tipo == 't'){
+          setState(){
+            total = newValor;
+          }
+        }        
+        
+        
+      }
     return(
       Padding(
       padding: const EdgeInsets.only(top: 15),
@@ -60,8 +83,8 @@ class HabilidadeBuilder{
                             const Text('Valor Total'),
                             TextButton(
                               onPressed: () => {                                
-                                this.referenc.paramet = total,
-                                this.popUpNumberPicker(context, titulo),
+                                                                
+                                this.popUpNumberPicker(context, titulo, total),
                                 // total = await referenc.thisValue(),
                                 print (total),
                                 this.referenc.paramet
@@ -109,51 +132,10 @@ class HabilidadeBuilder{
       ),
       )
     );
+    });
   }
 
-  Future<void> showInformationDialog(BuildContext context) async {
-    var _currentValue;
-    return await showDialog(
-        context: context,
-        builder: (context) {
-          // bool isChecked = false;
-        
-        return StatefulBuilder(builder: (context, setState) {
-        
-        return AlertDialog(
-
-        title: Text('Valor de '),
-        content: SingleChildScrollView(
-          child: ListBody(
-            children: <Widget>[
-              NumberPicker(              
-                value: _currentValue,
-                minValue: 0,
-                maxValue: 50,
-                onChanged: (value) => setState(() => _currentValue = value),
-                  
-              
-              ),
-            ],
-          ),
-        ),
-        actions: <Widget>[
-          TextButton(
-            child: const Text('Ok'),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      
-            );
-          });
-        });
-        }
-
-
-
-  Future<void> popUpNumberPicker(BuildContext contexto, String titulo)async {
+  Future<void> popUpNumberPicker(BuildContext contexto, String titulo, int valor)async {
     
     // int valueHability = AtualN;
     //var currentValue = 0;
@@ -163,15 +145,15 @@ class HabilidadeBuilder{
     builder: (BuildContext context) {
     return StatefulBuilder(builder: (context, setState) {   
       return AlertDialog(
-        title: Text('Valor de ' + titulo),
+        title: Text('Valor de $titulo'),
         content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
               NumberPicker(              
-                value: this.referenc.paramet,
+                value: valor,
                 minValue: 0,
                 maxValue: 50,
-                onChanged: (value) => setState(() => this.referenc.setValor(value)),            
+                onChanged: (value) => setState(() => valor = value),            
               
               ),
             ],
@@ -182,6 +164,7 @@ class HabilidadeBuilder{
             child: const Text('Ok'),
             onPressed: () {
               Navigator.of(context).pop();
+              // streamController.add('T', valor);
               
 
             },
