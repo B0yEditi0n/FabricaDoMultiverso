@@ -34,7 +34,7 @@ class homeTela extends State<homePage>{
         child: Column(          
           children: <Widget> [
             clhome.wdgButton('Habilidades', '/habilidadesTela'),
-            clhome.wdgButton('Defesas', '/loginTela'),
+            clhome.wdgButton('Defesas', '/defesasTela'),
             clhome.wdgButton('Vantagens', ''),
             clhome.wdgButton('Poderes', ''),
             clhome.wdgButton('Pericias', ''),

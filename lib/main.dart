@@ -7,6 +7,7 @@ import 'firebase_options.dart';
 import './login.dart';
 import './home.dart';
 import './habilidades.dart';
+import './defesas.dart';
 
 
 
@@ -29,6 +30,7 @@ Future<void> main() async {
       /*'/cadastroTela': (context) => const TelaCadastro(),*/
       '/telaInicio': (context) => homePage(),
       '/habilidadesTela': (context) => habilidadesTela(),
+      '/defesasTela': (context) => defesaPage(),
       
       
     },
