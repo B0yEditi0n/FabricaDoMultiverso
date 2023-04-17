@@ -13,6 +13,8 @@ dependencies:
   numberpicker: ^2.0.1
   flutter:
     sdk: flutter
+  http: ^0.13.5
+  path_provider: ^2.0.14
 
 dev_dependencies:
   flutter_test:

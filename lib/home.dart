@@ -22,12 +22,10 @@ class homeTela extends State<homePage>{
         ),
       drawer: Container(
         color: const Color.fromARGB(255, 13, 14, 92),
-        child: 
-          
+        child:          
           const Text(
-            'Titulo', 
+            'Titulo',
             selectionColor: Colors.white,
-            
             )
         ),
       body: Center(        
@@ -36,7 +34,7 @@ class homeTela extends State<homePage>{
             clhome.wdgButton('Habilidades', '/habilidadesTela'),
             clhome.wdgButton('Defesas', '/defesasTela'),
             clhome.wdgButton('Vantagens', ''),
-            clhome.wdgButton('Poderes', ''),
+            clhome.wdgButton('Poderes', '/poderesTela'),
             clhome.wdgButton('Pericias', ''),
             clhome.wdgButton('Complicações', ''),
           ],
@@ -71,10 +69,9 @@ class homeBuild {
             height: 30,
             
             //style: BoxDecoration(color:
-            child: 
+            child:
               TextButton(       
                 style: const ButtonStyle(               
-   
                 ),
                 child: 
                 Text(

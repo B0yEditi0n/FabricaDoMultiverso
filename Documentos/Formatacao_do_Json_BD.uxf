@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>234</x>
+      <y>45</y>
+      <w>162</w>
+      <h>432</h>
+    </coordinates>
+    <panel_attributes>Poder Ofensivo
+--
+"name": string
+"identifyID": int
+"rank": int
+"effectID": int
+"rangeID": int
+"typeID" : int
+"resistedBy" : string
+"affectedTrait": int
+"extras" : {
+--
+[
+	"id": int
+	"rankParcial": int
+	"rank": int
+]
+--
+}
+"flat":{
+--
+[
+	"id": int
+	"rank": int
+]
+--
+}
+"flaws":{
+--
+[
+	"id": int
+	"rank": int
+]
+--
+}
+
+	
+halign=left
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>630</x>
+      <y>45</y>
+      <w>180</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>EffectID in BD
+--
+"Nome": string
+"CustoBase": int
+"DistânciaID":
+
+halign=left
+valign=top
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>414</x>
+      <y>45</y>
+      <w>198</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Efeitos Alternativos
+--
+"name": string
+"effectID": int
+"main": int
+"powers": {
+--
+[Poderes Ofensivos]
+}
+
+halign=left
+valign=top</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>630</x>
+      <y>216</y>
+      <w>117</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Note..
+--
+ID de Distância
+1 - Pessoal
+2 - Perto
+3 - Distância
+4 - Percepção
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

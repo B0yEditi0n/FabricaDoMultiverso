@@ -13,13 +13,28 @@ class habilidadesTela extends StatefulWidget {
 class _habilidadesTelaState extends State<habilidadesTela> {   
   //Valores de Habilidade
   var forca     = HabilidadeValor(0, 0);
+  int vlForca   = 0;
+
   var vigor     = HabilidadeValor(0, 0);
+  int vlVigor   = 0;
+
   var destreza  = HabilidadeValor(0, 0);
+  var vlDestreza  = 0;
+
   var agilidade = HabilidadeValor(0, 0);
+  var vlAgilidade = 0;
+
   var luta      = HabilidadeValor(0, 0);
+  var vlLuta    = 0;
+
   var intelcto  = HabilidadeValor(0, 0);
+  int vlIntelcto  = 0;
+
   var prontidao = HabilidadeValor(0, 0); 
+  int vlProntidao = 0;
+
   var presenca  = HabilidadeValor(0, 0); 
+  int vlPresenca = 0;
   
   
   // Função para Atualizar Valor do Widget
@@ -37,27 +52,28 @@ class _habilidadesTelaState extends State<habilidadesTela> {
         case 'for':
           print(newValor);
           //forca.bonus = newValor;
+          vlForca = newValor;
           break;
         case 'vig':
-          vigor.bonus = newValor;
+          vlVigor = newValor;
           break;
         case 'des':
-          destreza.bonus = newValor;
+          vlDestreza = newValor;
           break;
         case 'agi':
-          agilidade.bonus = newValor;
+          vlAgilidade = newValor;
           break;
         case 'lut':
-          luta.bonus = newValor;
+          vlLuta = newValor;
           break;
         case 'int':
-          intelcto.bonus = newValor;
+          vlIntelcto = newValor;
           break; 
         case 'pro':
-          prontidao.bonus = newValor;
+          vlProntidao = newValor;
           break; 
         case 'pre':
-          presenca.bonus = newValor;
+          vlPresenca = newValor;
           break;        
       }
     });    
@@ -71,14 +87,35 @@ class _habilidadesTelaState extends State<habilidadesTela> {
       appBar: AppBar(
         title: const Text('Menu Principal'),
         ),
-      drawer: Container(
-        color: const Color.fromARGB(255, 13, 14, 92),
-        child: 
-          const Text(
-            'Titulo', 
-            selectionColor: Colors.white,
-            )
-        ),
+      drawer: Padding(
+          padding: const EdgeInsets.fromLTRB(12, 12, 0, 0),
+          child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisSize:,
+            children: [
+              TextButton(
+                child: const Text('Menu Principal'),
+                onPressed:() {
+                  Navigator.pop(context);
+                }, 
+                ),
+              TextButton(
+                child: const Text('Habilidades'),
+                onPressed:() {
+                  Navigator.popAndPushNamed(context, '/habilidadesTela');
+                }, 
+                ),
+              TextButton(
+                child: const Text('Defesas'),
+                onPressed:() {
+                  Navigator.popAndPushNamed(context, '/defesasTela');
+                }, 
+                ),
+            ]
+          ),
+        ),   
+        
       body: 
       SingleChildScrollView(
           child: Container(
@@ -87,14 +124,14 @@ class _habilidadesTelaState extends State<habilidadesTela> {
               alignment: const Alignment(0, 0),
               child: Column(                     
                 children: <Widget> [       
-                  habilidadeCaixa(context, 'Força', forca.bonus, forca.valor ),
-                  habilidadeCaixa(context, 'Vigor', vigor.bonus, vigor.valor ),
-                  habilidadeCaixa(context, 'Destreza', destreza.bonus, destreza.valor ),
-                  habilidadeCaixa(context, 'Agilidade', agilidade.bonus, agilidade.valor),
-                  habilidadeCaixa(context, 'Luta', luta.bonus, luta.valor),
-                  habilidadeCaixa(context, 'Intelecto', luta.bonus, luta.valor),
-                  habilidadeCaixa(context, 'Prontidão', prontidao.bonus, prontidao.valor),
-                  habilidadeCaixa(context, 'Presença', presenca.bonus, presenca.valor),
+                  habilidadeCaixa(context, 'Força', forca.bonus, vlForca ),
+                  habilidadeCaixa(context, 'Vigor', vigor.bonus, vlVigor ),
+                  habilidadeCaixa(context, 'Destreza', destreza.bonus, vlDestreza ),
+                  habilidadeCaixa(context, 'Agilidade', agilidade.bonus, vlAgilidade),
+                  habilidadeCaixa(context, 'Luta', luta.bonus, vlLuta),
+                  habilidadeCaixa(context, 'Intelecto', intelcto.bonus, vlIntelcto),
+                  habilidadeCaixa(context, 'Prontidão', prontidao.bonus, vlProntidao),
+                  habilidadeCaixa(context, 'Presença', presenca.bonus, vlPresenca),
                 ],
               ),
             ) 

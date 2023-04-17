@@ -18,15 +18,68 @@ barraDeTitulo(var titulo){
 barraLateral(){
   Container(
         color: const Color.fromARGB(255, 13, 14, 92),
-        child: 
-          
+        child:           
           const Text(
             'Titulo', 
-            selectionColor: Colors.white,
-            
+            selectionColor: Colors.white,            
             )
         );
 }
+
+itemMenuLateral(context, String titulo, String rota){
+  return TextButton(
+    child: Text(titulo),
+    onPressed:() {
+      Navigator.popAndPushNamed(context, rota);
+    }
+  );
+}
+
+menuLateral(context, String rotaAtual){
+  
+  var listaRotas = [
+    '/loginTela',
+    '/telaInicio',
+    '/habilidadesTela',
+    '/defesasTela',
+    '/poderesTela'    
+  ];
+
+  listaRotas.remove(rotaAtual);
+
+  return Padding(
+          
+    padding: const EdgeInsets.fromLTRB(12, 12, 0, 0),
+    child: Column(
+      // crossAxisAlignment: CrossAxisAlignment.stretch,
+      // mainAxisAlignment: MainAxisAlignment.center,
+      // mainAxisSize:,
+      children: [
+        TextButton(
+          child: const Text('Menu Principal'),
+          onPressed:() {
+            Navigator.pop(context);
+          }, 
+        ),
+        TextButton(
+          child: const Text('Habilidades'),
+          onPressed:() {
+            Navigator.popAndPushNamed(context, '/habilidadesTela');
+          }, 
+        ),
+        TextButton(
+          child: const Text('Defesas'),
+          onPressed:() {
+            Navigator.popAndPushNamed(context, '/defesasTela');
+          }, 
+        ),
+        
+        itemMenuLateral(context, 'Poderes', '/defesasTela'),
+      ]
+    ),
+  ); 
+}
+
 habilidadeCaixa(context, String titulo, int bonus, int total) {     
   bonus;
   total;

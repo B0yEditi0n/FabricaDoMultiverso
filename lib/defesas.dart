@@ -16,7 +16,7 @@ class _defesaPageState extends State<defesaPage> {
       appBar: barraDeTitulo('Defesas'),
       drawer: barraLateral(),
       body: Center(
-
+        
       )
     );
   }

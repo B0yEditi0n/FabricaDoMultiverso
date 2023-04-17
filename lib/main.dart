@@ -8,7 +8,7 @@ import './login.dart';
 import './home.dart';
 import './habilidades.dart';
 import './defesas.dart';
-
+import './poderes.dart';
 
 
 Future<void> main() async {
@@ -31,8 +31,7 @@ Future<void> main() async {
       '/telaInicio': (context) => homePage(),
       '/habilidadesTela': (context) => habilidadesTela(),
       '/defesasTela': (context) => defesaPage(),
-      
-      
+      '/poderesTela': (context) => poderesPage(),
     },
   ));
 }

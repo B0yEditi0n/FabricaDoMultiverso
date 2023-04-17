@@ -1,0 +1,42 @@
+{
+"powers":[
+    { 
+
+        "name" : "Arranjo",
+        "effectID" : 350,
+        "main": 10456,
+        "powers": [
+            {
+                "name": "Ataque",
+                "identifyID": 350,
+                "rank": 10,
+                "effectID": 12,
+                "rangeID": 2,
+                "typeID" : 1,
+                "resistedBy" : "Resistência",
+                "affectedTrait": 0,
+                "extras" :[
+                    {
+	                    "id": 405,
+	                    "rankParcial": 10,
+	                    "rank": 2
+                    }
+                ],
+                "flat":[
+                    {
+	                    "id": 501,
+	                    "rank": 2
+                    }
+                ],
+                "flaws":[
+                    {
+                        "id": 602,
+	                    "rank": 1
+                    }	
+                ]
+
+            }
+        ]
+    }
+]
+}
