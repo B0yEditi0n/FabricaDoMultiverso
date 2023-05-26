@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './backend/homeScript.dart';
+import '../backend/homeScript.dart';
+import './widgetConstutor.dart';
 
 class homePage extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class homePage extends StatefulWidget {
 
 class homeTela extends State<homePage>{
   var clhome = homeBuild();
+  var reBuild = widgetConstrutor();
   @override
   Widget build(BuildContext context){
     clhome.inicializacao(context);
@@ -19,15 +21,10 @@ class homeTela extends State<homePage>{
       backgroundColor: const Color.fromARGB(30, 30, 30, 92),  
       appBar: AppBar(
         title: const Text('Menu Principal'),
-        ),
-      drawer: Container(
-        color: const Color.fromARGB(255, 13, 14, 92),
-        child:          
-          const Text(
-            'Titulo',
-            selectionColor: Colors.white,
-            )
-        ),
+      ),
+
+      drawer: reBuild.barraLatera(context),
+
       body: Center(        
         child: Column(          
           children: <Widget> [
@@ -59,7 +56,7 @@ class homeBuild {
   }
 
   wdgButton(String txtTitle, String rotaTela){
-    return( 
+    return ( 
       Container(
         child:
         Padding(

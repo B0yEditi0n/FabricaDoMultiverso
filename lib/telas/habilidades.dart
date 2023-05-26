@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
-import './backend/habilidadesScript.dart';
+import '../backend/habilidadesScript.dart';
 import 'dart:core';
 
+// aproveitamento de Código
+import './widgetConstutor.dart';
 
 
 class habilidadesTela extends StatefulWidget {
@@ -37,6 +39,7 @@ class _habilidadesTelaState extends State<habilidadesTela> {
   int vlPresenca = 0;
   
   
+  var reBuild = widgetConstrutor();
   // Função para Atualizar Valor do Widget
   void updateValor(String id, newValor){
     // pega o titulo chamado e exibe 3 primeiras letras
@@ -85,37 +88,10 @@ class _habilidadesTelaState extends State<habilidadesTela> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(30, 30, 30, 92),  
       appBar: AppBar(
-        title: const Text('Menu Principal'),
-        ),
-      drawer: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 12, 0, 0),
-          child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.stretch,
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // mainAxisSize:,
-            children: [
-              TextButton(
-                child: const Text('Menu Principal'),
-                onPressed:() {
-                  Navigator.pop(context);
-                }, 
-                ),
-              TextButton(
-                child: const Text('Habilidades'),
-                onPressed:() {
-                  Navigator.popAndPushNamed(context, '/habilidadesTela');
-                }, 
-                ),
-              TextButton(
-                child: const Text('Defesas'),
-                onPressed:() {
-                  Navigator.popAndPushNamed(context, '/defesasTela');
-                }, 
-                ),
-            ]
-          ),
-        ),   
-        
+        title: const Text('Habilidades'),
+      ),
+      drawer: reBuild.barraLatera(context), 
+      
       body: 
       SingleChildScrollView(
           child: Container(

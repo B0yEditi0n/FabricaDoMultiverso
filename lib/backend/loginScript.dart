@@ -8,7 +8,7 @@ return showDialog<String>(context: context,
     )))
 */
 class startLogin{
-  bool goLoginPage = false;
+  // bool goLoginPage = false;
   inputLogin(String email, String senha ){
     //return
     if((email != null) && (senha != null)){

@@ -4,11 +4,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 //Tela de Login
-import './login.dart';
-import './home.dart';
-import './habilidades.dart';
-import './defesas.dart';
-import './poderes.dart';
+import 'telas/login.dart';
+import 'telas/home.dart';
+import 'telas/habilidades.dart';
+import 'telas/defesas.dart';
+import 'telas/poderes.dart';
+
+//Aproveitamento de Código
+import 'telas/widgetConstutor.dart';
 
 
 Future<void> main() async {
@@ -21,13 +24,12 @@ Future<void> main() async {
   runApp(MaterialApp(
     title: "",
     debugShowCheckedModeBanner: true,
-    // theme: new ThemeData(
-    //   scaffoldBackgroundColor: const Color.fromRGBO(30, 30, 30, 1)),
+    theme: ThemeData(
+      scaffoldBackgroundColor: const Color.fromRGBO(30, 30, 30, 1)),
 
     initialRoute: '/loginTela',
     routes: {
       '/loginTela' : (context) => loginPage(),
-      /*'/cadastroTela': (context) => const TelaCadastro(),*/
       '/telaInicio': (context) => homePage(),
       '/habilidadesTela': (context) => habilidadesTela(),
       '/defesasTela': (context) => defesaPage(),
@@ -41,3 +43,4 @@ rotaInicial(){
   // Fazer funcionar quando o fire base estiver disponível
   return ('/loginTela');
 }
+

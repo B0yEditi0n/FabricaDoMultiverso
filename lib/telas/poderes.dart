@@ -60,9 +60,7 @@ class _poderesPageState extends State<poderesPage> {
                 var jsonSTR = await readCounter();
                 final Map<String, dynamic> objs = json.decode(jsonSTR.toString());
                 print(objs['powers'][0]['powers'][0]['rank']);
-               },
-        
-              
+               },              
             )
           ),
         
