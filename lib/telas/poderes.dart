@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-import 'dart:io';       // responsável pelo import
-import 'dart:convert';  // Convesão do Json
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
+
+import '/widgets/widgetConstutor.dart';
+import '/backend/controllador.dart';
 
 class poderesPage extends StatefulWidget {
   const poderesPage({super.key});
@@ -10,60 +12,66 @@ class poderesPage extends StatefulWidget {
   State<poderesPage> createState() => _poderesPageState();
 }
 
-
 class _poderesPageState extends State<poderesPage> {
-  // Future<String> get _localPath async {
-  //   final directory = await getApplicationDocumentsDirectory();
-  //   return directory.path;
-  // }
-  Future<File> get _localFile async {
-    // final path = await _localPath;
-    return File('/home/caio/Documentos/RPG/conversão de ficha/AplicativoDeFichas/fabrica_do_multiverso/Documentos/Modelo.json');
-  }
   
-  Future<String> readCounter() async {
-    try {
-      final file = await _localFile;
-
-      // Read the file
-      final contents = await file.readAsString();
-
-      // print(contents);
-
-      return (contents);
-    } catch (e) {
-      // If encountering an error, return 0
-      return '';
-    }
-  }
-
+  widgetConstrutor reBuild = widgetConstrutor();
+  Controllador control = Controllador();
+  
   @override
   Widget build(BuildContext context) {
-    
-    // print(appDocumentsDir);
+
     return Scaffold(
-      backgroundColor: const Color.fromARGB(30, 30, 30, 92),  
       appBar: AppBar(
         title: const Text('Poderes'),
-        ),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Center(
-          child: 
-            TextButton(
-              child: const Text('TextButton'),
-              // style: ButtonStyle(
-              // foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-              // ),
-              onPressed: () async {
-                // print(await readCounter());
-                var jsonSTR = await readCounter();
-                final Map<String, dynamic> objs = json.decode(jsonSTR.toString());
-                print(objs['powers'][0]['powers'][0]['rank']);
-               },              
-            )
-          ),
-        
+      ),
+      drawer: reBuild.barraLatera(context),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+          
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  
+                  Container(
+                    width: (MediaQuery.of(context).size.width * 0.30 ), // tamanho relativo
+                    height: 2,
+                    color: Colors.white,
+                  ),
+          
+                  OutlinedButton(                  
+                    onPressed:() {
+                      control.addPower();
+                    }, 
+          
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 2,                       
+                        )
+                      ),
+          
+                      child: const Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        size: 30, 
+                      ),
+                    ),            
+                  ),
+                  
+                  Container(
+                    width: (MediaQuery.of(context).size.width * 0.30 ), // tamanho relativo
+                    height: 2,
+                    color: Colors.white,
+                  ),
+                ],
+            ),
+          )
+        ],
       ),
     );
   }

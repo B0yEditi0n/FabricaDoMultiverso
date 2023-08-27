@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:numberpicker/numberpicker.dart';
-import '../telas/habilidades.dart';
+// import 'package:numberpicker/numberpicker.dart';
+import '/telas/habilidades.dart';
 
 class setarEstado{
   final void Function() mudaValor;
@@ -60,7 +60,7 @@ habilidadeCaixa(context, String titulo, int bonus, int total) {
                           const Text('Valor Total'),
                           TextButton(
                             onPressed: () => {                                
-                              popUpNumberPicker(context, titulo, total),
+                              // popUpNumberPicker(context, titulo, total),
                             },
                             child: Text(total.toString())
                           )
@@ -140,52 +140,52 @@ wdgButton(BuildContext contexto, String txtTitle, String rotaTela){
     );
   }
 
-  popUpNumberPicker(BuildContext contexto, String titulo, int total)async {
-    // final ValueListenable<int> number;
+  // popUpNumberPicker(BuildContext contexto, String titulo, int total)async {
+  //   // final ValueListenable<int> number;
     
-    // MyWidget(this.number);
+  //   // MyWidget(this.number);
 
-    int valorHabili = total;
-    //var currentValue = 0;
-    await showDialog(
-    context: contexto,
-    barrierDismissible: false, // user must tap button!
-    builder: (BuildContext context) {
-    return StatefulBuilder(builder: (context, setState) {   
-      return  AlertDialog(
-        title: Text('Valor de $titulo'),
-        content: SingleChildScrollView(
-          child: ListBody(
-            children: <Widget>[
-              NumberPicker(              
-                value: valorHabili,
-                minValue: 0,
-                maxValue: 50,
-                onChanged: (setaValor) => setState(() => valorHabili = setaValor),            
+  //   int valorHabili = total;
+  //   //var currentValue = 0;
+  //   await showDialog(
+  //   context: contexto,
+  //   barrierDismissible: false, // user must tap button!
+  //   builder: (BuildContext context) {
+  //   return StatefulBuilder(builder: (context, setState) {   
+  //     return  AlertDialog(
+  //       title: Text('Valor de $titulo'),
+  //       content: SingleChildScrollView(
+  //         child: ListBody(
+  //           children: <Widget>[
+  //             NumberPicker(              
+  //               value: valorHabili,
+  //               minValue: 0,
+  //               maxValue: 50,
+  //               onChanged: (setaValor) => setState(() => valorHabili = setaValor),            
               
-              ),
-            ],
-          ),
-        ),
-        actions: <Widget>[
-          TextButton(
-            child: const Text('Ok'),
-            onPressed:// this.mudaValor
-            () {
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //       actions: <Widget>[
+  //         TextButton(
+  //           child: const Text('Ok'),
+  //           onPressed:// this.mudaValor
+  //           () {
 
-              // setState(() => total = valorHabili);
-              //setarEstado()
-              // setarFor(10);
-              //setState();
-              //referecFunction.mudaValor();
-              Navigator.of(context).pop();
+  //             // setState(() => total = valorHabili);
+  //             //setarEstado()
+  //             // setarFor(10);
+  //             //setState();
+  //             //referecFunction.mudaValor();
+  //             Navigator.of(context).pop();
 
-            },
-          ),
-        ],
-      );
-    },
-    );
-    }
-  );
-  }
+  //           },
+  //         ),
+  //       ],
+  //     );
+  //   },
+  //   );
+  //   }
+  // );
+  // }

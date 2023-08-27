@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:numberpicker/numberpicker.dart';
-import '../backend/habilidadesScript.dart';
+// import 'package:numberpicker/numberpicker.dart';
+// import '../backend/_tmp/habilidadesScript.dart';
 import 'dart:core';
 
 // aproveitamento de Código
-import './widgetConstutor.dart';
+import '/widgets/widgetConstutor.dart';
 
 
 class habilidadesTela extends StatefulWidget {
@@ -13,30 +13,30 @@ class habilidadesTela extends StatefulWidget {
 }
 
 class _habilidadesTelaState extends State<habilidadesTela> {   
-  //Valores de Habilidade
-  var forca     = HabilidadeValor(0, 0);
-  int vlForca   = 0;
+  // //Valores de Habilidade
+  // var forca     = HabilidadeValor(0, 0);
+  // int vlForca   = 0;
 
-  var vigor     = HabilidadeValor(0, 0);
-  int vlVigor   = 0;
+  // var vigor     = HabilidadeValor(0, 0);
+  // int vlVigor   = 0;
 
-  var destreza  = HabilidadeValor(0, 0);
-  var vlDestreza  = 0;
+  // var destreza  = HabilidadeValor(0, 0);
+  // var vlDestreza  = 0;
 
-  var agilidade = HabilidadeValor(0, 0);
-  var vlAgilidade = 0;
+  // var agilidade = HabilidadeValor(0, 0);
+  // var vlAgilidade = 0;
 
-  var luta      = HabilidadeValor(0, 0);
-  var vlLuta    = 0;
+  // var luta      = HabilidadeValor(0, 0);
+  // var vlLuta    = 0;
 
-  var intelcto  = HabilidadeValor(0, 0);
-  int vlIntelcto  = 0;
+  // var intelcto  = HabilidadeValor(0, 0);
+  // int vlIntelcto  = 0;
 
-  var prontidao = HabilidadeValor(0, 0); 
-  int vlProntidao = 0;
+  // var prontidao = HabilidadeValor(0, 0); 
+  // int vlProntidao = 0;
 
-  var presenca  = HabilidadeValor(0, 0); 
-  int vlPresenca = 0;
+  // var presenca  = HabilidadeValor(0, 0); 
+  // int vlPresenca = 0;
   
   
   var reBuild = widgetConstrutor();
@@ -52,32 +52,32 @@ class _habilidadesTelaState extends State<habilidadesTela> {
       
       switch (id.substring(0, 3).toLowerCase()){
         
-        case 'for':
-          print(newValor);
-          //forca.bonus = newValor;
-          vlForca = newValor;
-          break;
-        case 'vig':
-          vlVigor = newValor;
-          break;
-        case 'des':
-          vlDestreza = newValor;
-          break;
-        case 'agi':
-          vlAgilidade = newValor;
-          break;
-        case 'lut':
-          vlLuta = newValor;
-          break;
-        case 'int':
-          vlIntelcto = newValor;
-          break; 
-        case 'pro':
-          vlProntidao = newValor;
-          break; 
-        case 'pre':
-          vlPresenca = newValor;
-          break;        
+        // case 'for':
+        //   print(newValor);
+        //   //forca.bonus = newValor;
+        //   vlForca = newValor;
+        //   break;
+        // case 'vig':
+        //   vlVigor = newValor;
+        //   break;
+        // case 'des':
+        //   vlDestreza = newValor;
+        //   break;
+        // case 'agi':
+        //   vlAgilidade = newValor;
+        //   break;
+        // case 'lut':
+        //   vlLuta = newValor;
+        //   break;
+        // case 'int':
+        //   vlIntelcto = newValor;
+        //   break;
+        // case 'pro':
+        //   vlProntidao = newValor;
+        //   break;
+        // case 'pre':
+        //   vlPresenca = newValor;
+        //   break;
       }
     });    
   }
@@ -100,14 +100,14 @@ class _habilidadesTelaState extends State<habilidadesTela> {
               alignment: const Alignment(0, 0),
               child: Column(                     
                 children: <Widget> [       
-                  habilidadeCaixa(context, 'Força', forca.bonus, vlForca ),
-                  habilidadeCaixa(context, 'Vigor', vigor.bonus, vlVigor ),
-                  habilidadeCaixa(context, 'Destreza', destreza.bonus, vlDestreza ),
-                  habilidadeCaixa(context, 'Agilidade', agilidade.bonus, vlAgilidade),
-                  habilidadeCaixa(context, 'Luta', luta.bonus, vlLuta),
-                  habilidadeCaixa(context, 'Intelecto', intelcto.bonus, vlIntelcto),
-                  habilidadeCaixa(context, 'Prontidão', prontidao.bonus, vlProntidao),
-                  habilidadeCaixa(context, 'Presença', presenca.bonus, vlPresenca),
+                  // habilidadeCaixa(context, 'Força', forca.bonus, vlForca ),
+                  // habilidadeCaixa(context, 'Vigor', vigor.bonus, vlVigor ),
+                  // habilidadeCaixa(context, 'Destreza', destreza.bonus, vlDestreza ),
+                  // habilidadeCaixa(context, 'Agilidade', agilidade.bonus, vlAgilidade),
+                  // habilidadeCaixa(context, 'Luta', luta.bonus, vlLuta),
+                  // habilidadeCaixa(context, 'Intelecto', intelcto.bonus, vlIntelcto),
+                  // habilidadeCaixa(context, 'Prontidão', prontidao.bonus, vlProntidao),
+                  // habilidadeCaixa(context, 'Presença', presenca.bonus, vlPresenca),
                 ],
               ),
             ) 
@@ -165,7 +165,7 @@ class _habilidadesTelaState extends State<habilidadesTela> {
                             const Text('Valor Total'),
                             TextButton(
                               onPressed: () => {                                
-                                popUpNumberPicker(context, titulo, bonus),
+                                //popUpNumberPicker(context, titulo, bonus),
                                 
                               },
                               child: Text(total.toString())
@@ -209,42 +209,42 @@ class _habilidadesTelaState extends State<habilidadesTela> {
     //}
     //);
   }
-  Future<void> popUpNumberPicker(BuildContext contexto, String titulo, int valor)async {
-    return showDialog(
-    context: contexto,
-    barrierDismissible: false,
-    builder: (BuildContext context) {
-    return StatefulBuilder(builder: (context, setState) {   
-      return AlertDialog(
-        title: Text('Valor de $titulo'),
-        content: SingleChildScrollView(
-          child: ListBody(
-            children: <Widget>[
-              NumberPicker(              
-                value: valor,
-                minValue: 0,
-                maxValue: 50,
-                onChanged: (value) => setState(() => valor = value),            
+  // Future<void> popUpNumberPicker(BuildContext contexto, String titulo, int valor)async {
+  //   return showDialog(
+  //   context: contexto,
+  //   barrierDismissible: false,
+  //   builder: (BuildContext context) {
+  //   return StatefulBuilder(builder: (context, setState) {   
+  //     return AlertDialog(
+  //       title: Text('Valor de $titulo'),
+  //       content: SingleChildScrollView(
+  //         child: ListBody(
+  //           children: <Widget>[
+  //             // NumberPicker(              
+  //             //   value: valor,
+  //             //   minValue: 0,
+  //             //   maxValue: 50,
+  //             //   onChanged: (value) => setState(() => valor = value),            
               
-              ),
-            ],
-          ),
-        ),
-        actions: <Widget>[
-          TextButton(
-            child: const Text('Ok'),
-            onPressed: () {
-              updateValor(titulo, valor);
-              Navigator.of(context).pop();
-            },
-          ),
-        ],
-      );
-    },
-    );
-    }
-  );
-  }
+  //             // ),
+  //           ],
+  //         ),
+  //       ),
+  //       actions: <Widget>[
+  //         TextButton(
+  //           child: const Text('Ok'),
+  //           onPressed: () {
+  //             updateValor(titulo, valor);
+  //             Navigator.of(context).pop();
+  //           },
+  //         ),
+  //       ],
+  //     );
+  //   },
+  //   );
+  //   }
+  // );
+  // }
 
 
 }

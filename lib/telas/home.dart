@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../backend/homeScript.dart';
-import './widgetConstutor.dart';
+import '../backend/_tmp/homeScript.dart';
+import '/widgets/widgetConstutor.dart';
 
 class homePage extends StatefulWidget {
   @override

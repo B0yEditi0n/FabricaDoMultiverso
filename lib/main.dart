@@ -11,7 +11,7 @@ import 'telas/defesas.dart';
 import 'telas/poderes.dart';
 
 //Aproveitamento de Código
-import 'telas/widgetConstutor.dart';
+import 'widgets/widgetConstutor.dart';
 
 
 Future<void> main() async {

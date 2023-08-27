@@ -1,0 +1,12 @@
+{
+    "Personagem":{
+        "Poderes":{
+            "Efeito 1":{
+                "id" : 1,
+                "Nivel": 5,
+                "Extras" : [],
+                "Falhas" : []
+            }
+        }
+    }
+}

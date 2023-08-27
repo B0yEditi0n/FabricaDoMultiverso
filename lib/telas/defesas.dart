@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/bibliotecaFuncao.dart';
 
 //Rebuild
-import './widgetConstutor.dart';
+import '/widgets/widgetConstutor.dart';
 
 
 class defesaPage extends StatefulWidget {
