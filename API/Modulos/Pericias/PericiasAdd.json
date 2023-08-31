@@ -1,0 +1,19 @@
+{
+    "P003":{
+        "nome": "Combate À Distância",
+        "habilidade": "DES",
+        "treinamento": "False"
+    },
+    "P004":{
+        "nome": "Combate Corpo-a-corpo",
+        "habilidade": "LUT",
+        "treinamento": "False",
+        "adicionar":{}
+    },
+    "P006":{
+        "nome": "Especialidade",
+        "habilidade": "INT",
+        "treinamento": "True",
+        "descricao": ""
+    }
+}

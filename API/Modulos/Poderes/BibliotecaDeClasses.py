@@ -21,7 +21,7 @@ class Modificador():
 
         return modDic
         
-        
+      
 
 class EfeitoPadrao():
     nome = ''

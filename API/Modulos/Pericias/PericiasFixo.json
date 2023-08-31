@@ -1,0 +1,69 @@
+{
+    "P001":{
+        "nome": "Acrobacias",
+        "habilidade": "AGI",
+        "treinamento": "True"
+    },
+    "P002":{
+        "nome": "Atletismo",
+        "habilidade": "FOR",
+        "treinamento": "False"
+    },
+    "P005":{
+        "nome": "Enganação",
+        "habilidade": "PRE",
+        "treinamento": "False"
+    },
+
+    "P007":{
+        "nome": "Furtividade",
+        "habilidade": "AGI",
+        "treinamento": "False"
+    },
+    "P008":{
+        "nome": "Intimidação",
+        "habilidade": "PRE",
+        "treinamento": "False"
+    },
+    "P009":{
+        "nome": "Intuição",
+        "habilidade": "PRO",
+        "treinamento": "False"
+    },
+    "P010":{
+        "nome": "Investigação",
+        "habilidade": "INT",
+        "treinamento": "True"
+    },
+    "P011":{
+        "nome": "Percepção",
+        "habilidade": "PRO",
+        "treinamento": "False"
+    },
+    "P012":{
+        "nome": "Persuasão",
+        "habilidade": "PRE",
+        "treinamento": "False"
+    },
+    "P013":{
+        "nome": "Prestidigitação",
+        "habilidade": "DES",
+        "treinamento": "True"
+    },
+    "P014":{
+        "nome": "Tecnologia",
+        "habilidade": "INT",
+        "treinamento": "True"
+    },
+    "P015":{
+        "nome": "Tratamento",
+        "habilidade": "INT",
+        "treinamento": "True"
+    },
+    "P016":{
+        "nome": "Veículos",
+        "habilidade": "DES",
+        "treinamento": "True"
+    }
+
+}
