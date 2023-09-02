@@ -145,3 +145,17 @@ class EfeitoPadrao():
             custoFinal = 1
         return ( custoFinal )
 
+class MultiArranjos():
+    listEfeito = []
+    def retornaLista():
+        pass
+    def extraiEfeito():
+        pass
+    def calculaCusto(self, tipo=1):
+        # tipo 1 - Aranjo
+        # tipo 2 - Recipiente ou Efeitos Ligados
+        if tipo == 1:
+            pass
+        else:
+            pass
+        pass

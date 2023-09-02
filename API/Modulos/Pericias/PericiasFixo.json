@@ -9,58 +9,58 @@
         "habilidade": "FOR",
         "treinamento": "False"
     },
-    "P005":{
+    "P003":{
         "nome": "Enganação",
         "habilidade": "PRE",
         "treinamento": "False"
     },
 
-    "P007":{
+    "P004":{
         "nome": "Furtividade",
         "habilidade": "AGI",
         "treinamento": "False"
     },
-    "P008":{
+    "P005":{
         "nome": "Intimidação",
         "habilidade": "PRE",
         "treinamento": "False"
     },
-    "P009":{
+    "P006":{
         "nome": "Intuição",
         "habilidade": "PRO",
         "treinamento": "False"
     },
-    "P010":{
+    "P007":{
         "nome": "Investigação",
         "habilidade": "INT",
         "treinamento": "True"
     },
-    "P011":{
+    "P008":{
         "nome": "Percepção",
         "habilidade": "PRO",
         "treinamento": "False"
     },
-    "P012":{
+    "P009":{
         "nome": "Persuasão",
         "habilidade": "PRE",
         "treinamento": "False"
     },
-    "P013":{
+    "P010":{
         "nome": "Prestidigitação",
         "habilidade": "DES",
         "treinamento": "True"
     },
-    "P014":{
+    "P011":{
         "nome": "Tecnologia",
         "habilidade": "INT",
         "treinamento": "True"
     },
-    "P015":{
+    "P012":{
         "nome": "Tratamento",
         "habilidade": "INT",
         "treinamento": "True"
     },
-    "P016":{
+    "P013":{
         "nome": "Veículos",
         "habilidade": "DES",
         "treinamento": "True"
