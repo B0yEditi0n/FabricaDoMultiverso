@@ -1,43 +1,35 @@
 {
     "FOR":{
         "nome": "Força",
-        "valor": 0,
-        "bonus": 0
+        "valor": 0
     },
     "VIG":{
         "nome": "Vigor",
-        "valor": 0,
-        "bonus": 0
+        "valor": 0
     },
     "AGI":{
         "nome": "Agilidade",
-        "valor": 0,
-        "bonus": 0
+        "valor": 0
     },
     "DES" :{
         "nome": "Destreza",
-        "valor": 0,
-        "bonus": 0
+        "valor": 0
     },
     "LUT":{
         "nome": "Luta",
-        "valor": 0,
-        "bonus": 0
+        "valor": 0
     },
     "INT":{
         "nome": "Intelecto",
-        "valor": 0,
-        "bonus": 0
+        "valor": 0
     },
     "PRO":{
         "nome": "Prontidão",
-        "valor": 0,
-        "bonus": 0
+        "valor": 0
     },
     "PRE":{
         "nome": "Presença",
-        "valor": 0,
-        "bonus": 0
+        "valor": 0
     }
 
 }

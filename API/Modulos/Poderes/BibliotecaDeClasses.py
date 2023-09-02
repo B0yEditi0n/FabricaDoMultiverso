@@ -117,15 +117,14 @@ class EfeitoPadrao():
             efeitoDic['modificadores'] = []
             for i in range(0, len(self.modificadores)):
                 
-                # print(self.modificadores[i])
                 efeitoDic['modificadores'].append(self.modificadores[i])
 
         return (efeitoDic)
+    
     def _processaCusto(self):
         #Graduação x ( Custo + Modificadores)
         custoGrad = self.custoPorGrad
         custoFixo = 0
-        print(self.modificadores)
         for i in self.modificadores:            
             if (i['parcial'] != None):
                 custoFixo += i['custoGrad'] * i['parcial']
@@ -154,6 +153,7 @@ class MultiArranjos():
     def calculaCusto(self, tipo=1):
         # tipo 1 - Aranjo
         # tipo 2 - Recipiente ou Efeitos Ligados
+        # tipo Genérico Varíavel
         if tipo == 1:
             pass
         else:
