@@ -1,16 +1,24 @@
 import json
+import os
 
 # Módulo de Pericias 
 from Pericias import PericiaClass as Pericia
 from Poderes import BibliotecaDeClasses as Efeito
 ficha = {}
 
+currentDir = os.path.dirname(os.path.realpath(__file__))
+
 # Instanciadora de Poderes
 class instaciaPoderes():
     jPoderes = {}
-    efeitosList = json.loads(open('./Poderes/Efeitos.json', 'r').read())
+    
+    try:
+        efeitosList = json.loads(open(f'{currentDir}/Poderes/Efeitos.json', mode="r", encoding="utf-8").read())
+    except FileNotFoundError:
+        print('erro')
 
     def addPoder(self, efeito, nome=''):
+        
         efeitoBase = self.efeitosList[efeito]
         poder = Efeito.EfeitoPadrao(
             nome=efeito,
@@ -37,7 +45,7 @@ class intanciaPerica():
 
     def montaPericias(self):
         # adiciona pericias padrão
-        padraoPericias = json.loads(open('./Pericias/PericiasFixo.json', 'r').read())
+        padraoPericias = json.loads(open(f'{currentDir}/Pericias/PericiasFixo.json', mode='r', encoding='utf-8')).read()
 
         for id in padraoPericias:
             # IDs de pericia
@@ -88,7 +96,7 @@ class instanciadora():
     def __init__(self, new = True):
         # Instaciar do Zero
         if new:            
-            self.jHabili = json.loads(open('./Habilidades/Habilidades.json', 'r').read())
+            self.jHabili = json.loads(open(f'{currentDir}Habilidades/Habilidades.json', 'r').read())
             self.pericia = intanciaPerica(jHabili = self.jHabili)
             self.pericia.montaPericias()
 
