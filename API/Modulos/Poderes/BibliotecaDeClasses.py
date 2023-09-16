@@ -144,18 +144,62 @@ class EfeitoPadrao():
             custoFinal = 1
         return ( custoFinal )
 
+
+class Ofensive(EfeitoPadrao):
+    CD = 10
+
+    priCondit = ''
+    segCondit = ''
+    terCondit = ''
+
+    def __init__(self, nome, tipo, acao, alcance, duracao):
+        super().__init__(
+            nome = nome,
+            tipo = tipo,
+            acao = acao,
+            alcance = alcance,
+            duracao = duracao
+        )
+    def calculaCD(self):
+        if super().nome == 'Dano':
+            self.CD = 15
+        pass
+    
+    # Exclusivo de Aflição
+    def addCondition(self, prim, seg, ter):
+        self.priCondit = prim
+        self.segCondit = seg
+        self.terCondit = ter
+     
+    def devolveDic(self):
+        efeitoDic = super().devolveDic()
+
+        efeitoDic['condição'] = []
+        efeitoDic['condição']['primeira'] = self.priCondit
+        efeitoDic['condição']['segunda'] = self.segCondit
+        efeitoDic['condição']['terceira'] = self.terCondit
+
+
 class MultiArranjos():
     listEfeito = []
+
+    # tipo 1 - Aranjo
+    # tipo 2 - Recipiente ou Efeitos Ligados
+    # tipo Genérico Varíavel
+    tipo = 1
+
     def retornaLista():
         pass
     def extraiEfeito():
         pass
     def calculaCusto(self, tipo=1):
-        # tipo 1 - Aranjo
-        # tipo 2 - Recipiente ou Efeitos Ligados
-        # tipo Genérico Varíavel
+        
         if tipo == 1:
             pass
         else:
             pass
+        pass
+
+    def addPoder(self, json):
+        # self.listEfeito.append(json)
         pass
