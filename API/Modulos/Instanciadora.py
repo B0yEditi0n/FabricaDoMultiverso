@@ -6,14 +6,16 @@ from Pericias import PericiaClass as Pericia
 from Poderes import BibliotecaDeClasses as Efeito
 ficha = {}
 
-currentDir = os.path.dirname(os.path.realpath(__file__))
-
+currentDir  = os.path.dirname(os.path.realpath(__file__))
+dirHabilir  = os.path.join(os.sep, currentDir, 'Habilidades', 'Habilidades.json')   
+dirPericias = os.path.join(os.sep, currentDir, 'Pericias', 'PericiasFixo.json') 
+dirEfeito   = os.path.join(os.sep, currentDir, 'Poderes', 'Efeitos.json') 
 # Instanciadora de Poderes
 class instaciaPoderes():
     jPoderes = {}
     
     try:
-        efeitosList = json.loads(open(f'{currentDir}/Poderes/Efeitos.json', mode="r", encoding="utf-8").read())
+        efeitosList = json.loads(open(dirEfeito, mode="r", encoding="utf-8").read())
     except FileNotFoundError:
         print('erro')
 
@@ -45,7 +47,7 @@ class intanciaPerica():
 
     def montaPericias(self):
         # adiciona pericias padrão
-        padraoPericias = json.loads(open(f'{currentDir}/Pericias/PericiasFixo.json', mode='r', encoding='utf-8')).read()
+        padraoPericias = json.loads(open(dirPericias, mode='r', encoding='utf-8').read())
 
         for id in padraoPericias:
             # IDs de pericia
@@ -72,7 +74,7 @@ class intanciaPerica():
     def addBonusPericia(self, id, bonus):
         # desmantelar elemento
         nome = self.jPericias[id]['nome']
-        # bonus = self.jPericias[id]['bonus']
+        self.jPericias[id]['bonus'] = bonus
         self.jPericias[id]['habilidade']
         habiliBase = self.jPericias[id]['habilidade']
         habiliBonus = self.jHabili[habiliBase]['valor']
@@ -95,8 +97,9 @@ class instanciadora():
     jPoderes = {}
     def __init__(self, new = True):
         # Instaciar do Zero
-        if new:            
-            self.jHabili = json.loads(open(f'{currentDir}Habilidades/Habilidades.json', 'r').read())
+        if new:
+            
+            self.jHabili = json.loads(open(dirHabilir, 'r', encoding="utf-8").read())
             self.pericia = intanciaPerica(jHabili = self.jHabili)
             self.pericia.montaPericias()
 
@@ -105,14 +108,15 @@ class instanciadora():
     def bonusHabilidades(self, Habilistr, bonus):
         Habilistr.upper()
         self.jHabili[Habilistr]['valor'] = bonus
-        pass
 
     def recebeJson():
         pass
 
 
-intancie = instaciaPoderes()
+intancie = instanciadora()
 
-intancie.addPoder(nome='Condicionar', efeito='Aflição')
-
-print (intancie.jPoderes)
+# intancie.addPoder(nome='Condicionar', efeito='Aflição')
+intancie.bonusHabilidades('FOR', 3)
+print(intancie.jHabili)
+intancie.pericia.addBonusPericia('P002', 2)
+print (intancie.pericia.jPericias)
