@@ -5,8 +5,8 @@ import sys
 # Módulo de Pericias 
 # import API.Modulos.Pericias
 
-from Pericias import PericiaClass as Pericia
-from Poderes import BibliotecaDeClasses as Efeito
+from .Pericias import PericiaClass as Pericia
+from .Poderes import BibliotecaDeClasses as Efeito
 
 ficha = {}
 
@@ -111,7 +111,7 @@ class instanciadora():
         
     def bonusHabilidades(self, Habilistr, bonus):
         Habilistr.upper()
-        self.jHabili[Habilistr]['valor'] = bonus
+        self.jHabili[Habilistr]['valor'] = int(bonus)
 
     def recebeJson():
         pass
