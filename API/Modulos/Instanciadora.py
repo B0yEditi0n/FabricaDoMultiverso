@@ -1,9 +1,13 @@
 import json
 import os
+import sys
 
 # Módulo de Pericias 
+# import API.Modulos.Pericias
+
 from Pericias import PericiaClass as Pericia
 from Poderes import BibliotecaDeClasses as Efeito
+
 ficha = {}
 
 currentDir  = os.path.dirname(os.path.realpath(__file__))
@@ -113,10 +117,10 @@ class instanciadora():
         pass
 
 
-intancie = instanciadora()
+# intancie = instanciadora()
 
-# intancie.addPoder(nome='Condicionar', efeito='Aflição')
-intancie.bonusHabilidades('FOR', 3)
-print(intancie.jHabili)
-intancie.pericia.addBonusPericia('P002', 2)
-print (intancie.pericia.jPericias)
+# # intancie.addPoder(nome='Condicionar', efeito='Aflição')
+# intancie.bonusHabilidades('FOR', 3)
+# print(intancie.jHabili)
+# intancie.pericia.addBonusPericia('P002', 2)
+# print (intancie.pericia.jPericias)
