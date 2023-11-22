@@ -99,6 +99,7 @@ class instanciadora():
     jHabili = {}
     pericia = ()
     jPoderes = {}
+    nome = ""
     def __init__(self, new = True):
         # Instaciar do Zero
         if new:
@@ -113,8 +114,14 @@ class instanciadora():
         Habilistr.upper()
         self.jHabili[Habilistr]['valor'] = int(bonus)
 
-    def recebeJson():
-        pass
+    def recebeJson(self):
+        ficha = { 
+            "name": self.nome,
+            "habilidades": self.jHabili,
+            "pericia": self.pericia.jPericias
+
+        }
+        return ficha
 
 
 # intancie = instanciadora()
