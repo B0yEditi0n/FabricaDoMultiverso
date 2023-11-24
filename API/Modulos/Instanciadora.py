@@ -100,15 +100,18 @@ class instanciadora():
     pericia = ()
     jPoderes = {}
     nome = ""
-    def __init__(self, new = True):
+    def __init__(self, new = False, ficha={}):
         # Instaciar do Zero
-        if new:
+        if new == False:
             
             self.jHabili = json.loads(open(dirHabilir, 'r', encoding="utf-8").read())
             self.pericia = intanciaPerica(jHabili = self.jHabili)
             self.pericia.montaPericias()
-
-        # Apartir de um arquivo
+        else :
+            self.jHabili = ficha['habilidades']
+            self.pericia = intanciaPerica(jHabili = self.jHabili)
+            self.pericia.jPericias = ficha['habilidades']
+            self.nome = ficha['name']
         
     def bonusHabilidades(self, Habilistr, bonus):
         Habilistr.upper()
@@ -118,11 +121,10 @@ class instanciadora():
         ficha = { 
             "name": self.nome,
             "habilidades": self.jHabili,
-            "pericia": self.pericia.jPericias
+            "pericias": self.pericia.jPericias
 
         }
         return ficha
-
 
 # intancie = instanciadora()
 

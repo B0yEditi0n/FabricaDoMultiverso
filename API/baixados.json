@@ -1,0 +1,143 @@
+{
+  "habilidades": {
+    "AGI": {
+      "nome": "Agilidade",
+      "valor": 5
+    },
+    "DES": {
+      "nome": "Destreza",
+      "valor": 0
+    },
+    "FOR": {
+      "nome": "For\u00e7a",
+      "valor": 3
+    },
+    "INT": {
+      "nome": "Intelecto",
+      "valor": 0
+    },
+    "LUT": {
+      "nome": "Luta",
+      "valor": 0
+    },
+    "PRE": {
+      "nome": "Presen\u00e7a",
+      "valor": 0
+    },
+    "PRO": {
+      "nome": "Prontid\u00e3o",
+      "valor": 0
+    },
+    "VIG": {
+      "nome": "Vigor",
+      "valor": 0
+    }
+  },
+  "name": "fabrioP2SextoSemetre",
+  "pericias": {
+    "P001": {
+      "bonus": 2,
+      "custo": 1,
+      "habilidade": "AGI",
+      "nome": "Acrobacias",
+      "total": 7,
+      "treino": "True"
+    },
+    "P002": {
+      "bonus": 3,
+      "custo": 2,
+      "habilidade": "FOR",
+      "nome": "Atletismo",
+      "total": 6,
+      "treino": "False"
+    },
+    "P003": {
+      "bonus": 0,
+      "custo": 0,
+      "habilidade": "PRE",
+      "nome": "Engana\u00e7\u00e3o",
+      "total": 0,
+      "treino": "False"
+    },
+    "P004": {
+      "bonus": 0,
+      "custo": 0,
+      "habilidade": "AGI",
+      "nome": "Furtividade",
+      "total": 0,
+      "treino": "False"
+    },
+    "P005": {
+      "bonus": 0,
+      "custo": 0,
+      "habilidade": "PRE",
+      "nome": "Intimida\u00e7\u00e3o",
+      "total": 0,
+      "treino": "False"
+    },
+    "P006": {
+      "bonus": 0,
+      "custo": 0,
+      "habilidade": "PRO",
+      "nome": "Intui\u00e7\u00e3o",
+      "total": 0,
+      "treino": "False"
+    },
+    "P007": {
+      "bonus": 0,
+      "custo": 0,
+      "habilidade": "INT",
+      "nome": "Investiga\u00e7\u00e3o",
+      "total": 0,
+      "treino": "True"
+    },
+    "P008": {
+      "bonus": 0,
+      "custo": 0,
+      "habilidade": "PRO",
+      "nome": "Percep\u00e7\u00e3o",
+      "total": 0,
+      "treino": "False"
+    },
+    "P009": {
+      "bonus": 0,
+      "custo": 0,
+      "habilidade": "PRE",
+      "nome": "Persuas\u00e3o",
+      "total": 0,
+      "treino": "False"
+    },
+    "P010": {
+      "bonus": 0,
+      "custo": 0,
+      "habilidade": "DES",
+      "nome": "Prestidigita\u00e7\u00e3o",
+      "total": 0,
+      "treino": "True"
+    },
+    "P011": {
+      "bonus": 0,
+      "custo": 0,
+      "habilidade": "INT",
+      "nome": "Tecnologia",
+      "total": 0,
+      "treino": "True"
+    },
+    "P012": {
+      "bonus": 0,
+      "custo": 0,
+      "habilidade": "INT",
+      "nome": "Tratamento",
+      "total": 0,
+      "treino": "True"
+    },
+    "P013": {
+      "bonus": 0,
+      "custo": 0,
+      "habilidade": "DES",
+      "nome": "Ve\u00edculos",
+      "total": 0,
+      "treino": "True"
+    }
+  }
+}

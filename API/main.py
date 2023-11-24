@@ -1,7 +1,11 @@
+# microserviçops
+# design pater IDE classes 
+
 import os
 import flask 
 import sys
 import requests
+import json
 
 import importlib
 from Modulos.Instanciadora import instanciadora
@@ -60,6 +64,20 @@ def postAPI():
         print (name)
         return (f'postado!\n {ficha.recebeJson()}')
     
+@api.route('/get/')
+def getAPI():
+    APIurl = "https://fabrica-do-multiverso-default-rtdb.firebaseio.com/index"
+    diretorio = flask.request.args.get('dir')
+    if diretorio != None:
+        # x = requests.get( APIurl + diretorio + '.json')        
+        pass
+        return('implemetação futura')
+    else:
+        currentDir  = os.path.dirname(os.path.realpath(__file__))
+        dirFicha  = os.path.join(os.sep, currentDir, 'baixados.json')
+        fileFicha = json.loads(open(dirFicha, mode='r', encoding='utf-8').read())
+        ficha = instanciadora(new=True, ficha=fileFicha)
+        return fileFicha
 
 if __name__ == '__main__':
     api.run(debug=True)
