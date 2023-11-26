@@ -1,3 +1,26 @@
+class Modificador():
+    nome  = ''
+    custo = 0
+    parcial = 0
+    descricao = ''
+    fixo = False
+    def processarDic(self):
+        modDic = {
+            'nome': self.nome,
+            'descricao': self.descricao
+        }
+        if (self.fixo):
+            modDic['custoGrad'] = 0
+            modDic['custoFixo'] = self.custo
+            
+        else:
+            modDic['custoGrad'] = self.custo
+            modDic['custoFixo'] = 0
+        
+        modDic['parcial'] = self.parcial
+
+        return modDic
+    
 class EfeitoPadrao():
     eNome = ''
     tipo = ''
@@ -179,26 +202,4 @@ class MultiArranjos():
         # self.listEfeito.append(json)
         pass
 
-class Modificador():
-    nome  = ''
-    custo = 0
-    parcial = 0
-    descricao = ''
-    fixo = False
-    def processarDic(self):
-        modDic = {
-            'nome': self.nome,
-            'descricao': self.descricao
-        }
-        if (self.fixo):
-            modDic['custoGrad'] = 0
-            modDic['custoFixo'] = self.custo
-            
-        else:
-            modDic['custoGrad'] = self.custo
-            modDic['custoFixo'] = 0
-        
-        modDic['parcial'] = self.parcial
-
-        return modDic
         

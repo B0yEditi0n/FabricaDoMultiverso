@@ -75,31 +75,19 @@ def poderes():
 
 @api.route('/efeitos/')
 def efeitos():
-    return (ficha.poderes.EfeitoList())    
-
-# Excluir Futuramente
-# from Modulos.Poderes.BibliotecaDeClasses import Modificador
-class reroute(flask_restful.Resource):
-    def post(self):
-        if flask_restful.request.is_json:
-            return flask_restful.request.json
-        pass 
-postApi.add_resource(reroute, '/modificadores')
-
-# Excluir Futuramente
+    return (ficha.poderes.EfeitoList())
 
 @api.route('/modificadores/')
 def modificadores():
-    # if flask.Request.is_json:
-    #     return flask.Request.is_json
+    modID       = flask.request.args.get('idMod') 
+    idPoder     = flask.request.args.get('idPoder') 
+    if modID == None:
+        return ficha.poderes.modList
+    else:
+        ficha.poderes.addModify(id=idPoder, modID=modID)
 
+###########################################################
 
-    id     = flask.request.args.get('id') 
-    grad   = flask.request.args.get('nivel')
-    if id == None: # Sem parametros
-        return('rota')
-
-    pass
 
 @api.route('/post/')
 def postAPI():

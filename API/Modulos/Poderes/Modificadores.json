@@ -1,0 +1,25 @@
+{
+    "ataque":{
+        "A001":{
+            "nome": "Acurado",
+            "calculo": "EF",
+            "max": 0
+
+        },
+
+        "A002":{
+            "nome": "Afeta Corpóreo",
+            "calculo": "EF",
+            "max": "nivel"
+
+        
+        },
+
+        "A003":{
+            "nome": "Afeta Objetos",
+            "calculo": "EG",
+            "max": 1
+         }
+    }
+    
+}

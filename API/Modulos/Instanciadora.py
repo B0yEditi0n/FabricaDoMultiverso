@@ -14,6 +14,7 @@ currentDir  = os.path.dirname(os.path.realpath(__file__))
 dirHabilir  = os.path.join(os.sep, currentDir, 'Habilidades', 'Habilidades.json')   
 dirPericias = os.path.join(os.sep, currentDir, 'Pericias', 'PericiasFixo.json') 
 dirEfeito   = os.path.join(os.sep, currentDir, 'Poderes', 'Efeitos.json')
+dirModifi   = os.path.join(os.sep, currentDir, 'Poderes', 'Modificadores.json')
 
 # Instanciadora de Poderes
 class instaciaPoderes():
@@ -21,6 +22,7 @@ class instaciaPoderes():
     
     try:
         efeitosList = json.loads(open(dirEfeito, mode="r", encoding="utf-8").read())
+        modList = json.loads(open(dirModifi, mode="r", encoding="utf-8").read())
     except FileNotFoundError:
         print('erro')
 
@@ -43,7 +45,7 @@ class instaciaPoderes():
 
         return id
         # self.jPoderes[id]['nome'] = nome
-
+    
     def addNivelPoder(self, id, nivel):
         poder = Efeito.EfeitoPadrao(
             eNome    = self.jPoderes[id]['nomeEfeito'],
@@ -59,17 +61,39 @@ class instaciaPoderes():
         self.jPoderes[id] = poder.devolveDic()
         self.jPoderes[id]['NomePoder'] = pNome
         
-    def _instanciaBase():
-        pass
-
+    # def _instanciaBase():
+    #     pass
     
     def EfeitoList(self):
         return(self.efeitosList)
 
-    def addModify(): # modificar futuramente com lista
-        pass
-
+    def addModify(self, id, modID): # modificar futuramente com lista
+        poder = Efeito.EfeitoPadrao(
+            eNome    = self.jPoderes[id]['nomeEfeito'],
+            acao    = self.jPoderes[id]['acao'], 
+            alcance = self.jPoderes[id]['alcance'],
+            duracao = self.jPoderes[id]['duracao'],
+            tipo    = ''
+        )
         
+        poder.addCusto(self.jPoderes[id]['custo'])
+        poder.graduacao = self.jPoderes[id]['graduacao']
+        pNome = self.jPoderes[id]['NomePoder']
+
+        if modID != None:
+            if(modID[0] == 'A'):
+                # Ataque
+                jMod = dirModifi['ataque'][modID]
+                print(jMod)
+                poder.addModificador(
+                #     tipo   = jMod['tipo']
+                #     eNome  = jMod['nome']
+                #     custo  = jMod['custo']
+                )
+
+        self.jPoderes[id]['NomePoder'] = pNome
+        self.jPoderes[id] = poder.devolveDic()
+
 
 # Instanciadora de Pericias
 class intanciaPerica():
