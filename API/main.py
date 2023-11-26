@@ -2,7 +2,8 @@
 # design pater IDE classes 
 
 import os
-import flask 
+import flask
+import flask_restful
 import sys
 import requests
 import json
@@ -13,11 +14,12 @@ from Modulos.Instanciadora import instanciadora
 ficha = instanciadora()
 
 api = flask.Flask(__name__)
+postApi = flask_restful.Api(api)
 @api.route('/')
 def root(): 
     return(ficha.recebeJson())
 
-@api.route('/nome')
+@api.route('/nome/')
 def defineNome():
     nomeChar = flask.request.args.get('nome')
     ficha.nome = nomeChar
@@ -51,6 +53,53 @@ def pericias():
             bonus = int(bonus)      
         )
         return ficha.pericia.jPericias[IDPeri]
+
+##########################
+#    Sessão dos Poderes  #
+##########################
+
+@api.route('/poderes/')
+def poderes():
+    id     = flask.request.args.get('id') 
+    efeito = flask.request.args.get('efeito') 
+    grad   = flask.request.args.get('nivel')
+    nome   = flask.request.args.get('nome')
+    
+    if id == None: # Poder Novo
+        id = ficha.poderes.addPoder(efeito=efeito, nome=nome)
+
+    if grad != None:
+        ficha.poderes.addNivelPoder( id=id, nivel=grad,)
+    return ficha.poderes.jPoderes[id]
+
+
+@api.route('/efeitos/')
+def efeitos():
+    return (ficha.poderes.EfeitoList())    
+
+# Excluir Futuramente
+# from Modulos.Poderes.BibliotecaDeClasses import Modificador
+class reroute(flask_restful.Resource):
+    def post(self):
+        if flask_restful.request.is_json:
+            return flask_restful.request.json
+        pass 
+postApi.add_resource(reroute, '/modificadores')
+
+# Excluir Futuramente
+
+@api.route('/modificadores/')
+def modificadores():
+    # if flask.Request.is_json:
+    #     return flask.Request.is_json
+
+
+    id     = flask.request.args.get('id') 
+    grad   = flask.request.args.get('nivel')
+    if id == None: # Sem parametros
+        return('rota')
+
+    pass
 
 @api.route('/post/')
 def postAPI():

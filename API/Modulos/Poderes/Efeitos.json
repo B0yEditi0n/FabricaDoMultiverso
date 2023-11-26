@@ -1,5 +1,15 @@
 {
-    "Aflição":{
+    "notas":{
+        "texto":[
+            "Evitar Problemas Futuros com UTF8",
+            "# _ = espaço",
+            "# 1 = í",
+            "# 4 = ã",
+            "# 5 = ç"
+        ]
+    },
+
+    "Afli54o":{
         "tipo": "Ataque",
         "acao": 1,
         "alcance": 1,
@@ -27,7 +37,7 @@
 
     },
 
-    "Característica":{
+    "Caracter1stica":{
         "tipo": "Geral",
         "acao": 0,
         "alcance": 0,
@@ -35,7 +45,7 @@
         "custo": 1
     },
     
-    "Característica_Aumentada":{
+    "Caracter1stica_Aumentada":{
         "tipo": "Geral",
         "acao": 3, 
         "alcance": 0,

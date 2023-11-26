@@ -1,32 +1,6 @@
-class Modificador():
-    nome  = ''
-    custo = 0
-    parcial = 0
-    descricao = ''
-    fixo = False
-    def processarDic(self):
-        modDic = {
-            'nome': self.nome,
-            'descricao': self.descricao
-        }
-        if (self.fixo):
-            modDic['custoGrad'] = 0
-            modDic['custoFixo'] = self.custo
-            
-        else:
-            modDic['custoGrad'] = self.custo
-            modDic['custoFixo'] = 0
-        
-        modDic['parcial'] = self.parcial
-
-        return modDic
-        
-      
-
 class EfeitoPadrao():
-    nome = ''
+    eNome = ''
     tipo = ''
-
 
     acao = 0 
     # 0 - Nenhuma
@@ -56,12 +30,12 @@ class EfeitoPadrao():
 
     modificadores = []
 
-    def __init__(self, nome, tipo, acao, alcance, duracao):
-        self.nome    = nome
-        self.tipo    = tipo
+    def __init__(self, eNome, tipo, acao, alcance, duracao):
+        self.tipo    = tipo        
         self.acao    = acao
         self.alcance = alcance
         self.duracao = duracao
+        self.eNome    = eNome     # Nome do Efeito
 
     def addCusto(self, custo):
         self.custoPorGrad = custo
@@ -69,9 +43,9 @@ class EfeitoPadrao():
     def addGrad(self, grad):
         self.graduacao = grad
 
-    def addModificador(self, tipo, nome, custo, modEfeito={}, parcial=None, descricao=''):
+    def addModificador(self, tipo, eNome, custo, modEfeito={}, parcial=None, descricao=''):
         modificador = Modificador()       
-        modificador.nome = nome
+        modificador.nome = eNome
         modificador.custo = custo
         modificador.parcial = parcial
         modificador.descricao = descricao
@@ -106,12 +80,13 @@ class EfeitoPadrao():
     # Utilidades de Classe
     def devolveDic(self):
         efeitoDic = {
-            'nomeEfeito': self.nome,
+            'nomeEfeito': self.eNome,
             'acao': self.acao,
             'alcance': self.alcance,
             'duracao': self.duracao,
             'graduacao': self.graduacao,
-            'custo': self._processaCusto()
+            'custo': self.custoPorGrad,
+            'pontos': self._processaCusto()
         }
         if (len(self.modificadores) > 0):
             efeitoDic['modificadores'] = []
@@ -203,3 +178,27 @@ class MultiArranjos():
     def addPoder(self, json):
         # self.listEfeito.append(json)
         pass
+
+class Modificador():
+    nome  = ''
+    custo = 0
+    parcial = 0
+    descricao = ''
+    fixo = False
+    def processarDic(self):
+        modDic = {
+            'nome': self.nome,
+            'descricao': self.descricao
+        }
+        if (self.fixo):
+            modDic['custoGrad'] = 0
+            modDic['custoFixo'] = self.custo
+            
+        else:
+            modDic['custoGrad'] = self.custo
+            modDic['custoFixo'] = 0
+        
+        modDic['parcial'] = self.parcial
+
+        return modDic
+        

@@ -13,7 +13,8 @@ ficha = {}
 currentDir  = os.path.dirname(os.path.realpath(__file__))
 dirHabilir  = os.path.join(os.sep, currentDir, 'Habilidades', 'Habilidades.json')   
 dirPericias = os.path.join(os.sep, currentDir, 'Pericias', 'PericiasFixo.json') 
-dirEfeito   = os.path.join(os.sep, currentDir, 'Poderes', 'Efeitos.json') 
+dirEfeito   = os.path.join(os.sep, currentDir, 'Poderes', 'Efeitos.json')
+
 # Instanciadora de Poderes
 class instaciaPoderes():
     jPoderes = {}
@@ -27,18 +28,48 @@ class instaciaPoderes():
         
         efeitoBase = self.efeitosList[efeito]
         poder = Efeito.EfeitoPadrao(
-            nome=efeito,
-            acao=efeitoBase['acao'], 
-            alcance=efeitoBase['alcance'],
-            duracao=efeitoBase['duracao'],
-            tipo=efeitoBase['tipo'])
-        
+            eNome   = efeito,
+            acao    = efeitoBase['acao'], 
+            alcance = efeitoBase['alcance'],
+            duracao = efeitoBase['duracao'],
+            tipo    = efeitoBase['tipo']
+            )
+
+        poder.addCusto(efeitoBase['custo'])
+
         id = f'E{len(self.jPoderes) + 1}'
-        print ( 'Adicionado Poder de ID:', id )
         self.jPoderes[id] = poder.devolveDic()
-        self.jPoderes[id]['nome'] = nome
-    def addModify():
+        self.jPoderes[id]['NomePoder'] = nome
+
+        return id
+        # self.jPoderes[id]['nome'] = nome
+
+    def addNivelPoder(self, id, nivel):
+        poder = Efeito.EfeitoPadrao(
+            eNome    = self.jPoderes[id]['nomeEfeito'],
+            acao    = self.jPoderes[id]['acao'], 
+            alcance = self.jPoderes[id]['alcance'],
+            duracao = self.jPoderes[id]['duracao'],
+            tipo    = ''
+        )
+        
+        poder.addCusto(self.jPoderes[id]['custo'])
+        poder.addGrad(int(nivel))
+        pNome = self.jPoderes[id]['NomePoder']
+        self.jPoderes[id] = poder.devolveDic()
+        self.jPoderes[id]['NomePoder'] = pNome
+        
+    def _instanciaBase():
         pass
+
+    
+    def EfeitoList(self):
+        return(self.efeitosList)
+
+    def addModify(): # modificar futuramente com lista
+        pass
+
+        
 
 # Instanciadora de Pericias
 class intanciaPerica():
@@ -98,30 +129,41 @@ class intanciaPerica():
 class instanciadora():
     jHabili = {}
     pericia = ()
-    jPoderes = {}
+    
+    poderes = {}
     nome = ""
     def __init__(self, new = False, ficha={}):
         # Instaciar do Zero
         if new == False:
-            
             self.jHabili = json.loads(open(dirHabilir, 'r', encoding="utf-8").read())
+
             self.pericia = intanciaPerica(jHabili = self.jHabili)
             self.pericia.montaPericias()
+            
+            
         else :
             self.jHabili = ficha['habilidades']
+            self.nome = ficha['name']
+
             self.pericia = intanciaPerica(jHabili = self.jHabili)
             self.pericia.jPericias = ficha['habilidades']
-            self.nome = ficha['name']
+            
+        
+        # Instancia Padrão
+        self.poderes = instaciaPoderes()
+
         
     def bonusHabilidades(self, Habilistr, bonus):
         Habilistr.upper()
         self.jHabili[Habilistr]['valor'] = int(bonus)
+        # Pericias Precisam ser Reprocessadas para ajustar bonus
 
     def recebeJson(self):
         ficha = { 
             "name": self.nome,
             "habilidades": self.jHabili,
-            "pericias": self.pericia.jPericias
+            "pericias": self.pericia.jPericias,
+            "poderes": self.poderes.jPoderes
 
         }
         return ficha
