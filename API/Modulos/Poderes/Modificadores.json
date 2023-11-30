@@ -3,14 +3,16 @@
         "A001":{
             "nome": "Acurado",
             "calculo": "EF",
-            "max": 0
+            "max": 0,
+            "custo": 1
 
         },
 
         "A002":{
             "nome": "Afeta Corpóreo",
             "calculo": "EF",
-            "max": "nivel"
+            "max": "nivel",
+            "custo": 1
 
         
         },
@@ -18,7 +20,9 @@
         "A003":{
             "nome": "Afeta Objetos",
             "calculo": "EG",
-            "max": 1
+            "max": 1,
+            "custo": 1
+
          }
     }
     

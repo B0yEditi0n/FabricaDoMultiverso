@@ -109,7 +109,8 @@ class EfeitoPadrao():
             'duracao': self.duracao,
             'graduacao': self.graduacao,
             'custo': self.custoPorGrad,
-            'pontos': self._processaCusto()
+            'pontos': self._processaCusto(),
+            'modificadores': self.modificadores
         }
         if (len(self.modificadores) > 0):
             efeitoDic['modificadores'] = []

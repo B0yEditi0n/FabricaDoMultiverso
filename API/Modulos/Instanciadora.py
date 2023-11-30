@@ -47,6 +47,9 @@ class instaciaPoderes():
         # self.jPoderes[id]['nome'] = nome
     
     def addNivelPoder(self, id, nivel):
+        pNome = self.jPoderes[id]['NomePoder']
+        modif = self.jPoderes[id]['modificadores']
+
         poder = Efeito.EfeitoPadrao(
             eNome    = self.jPoderes[id]['nomeEfeito'],
             acao    = self.jPoderes[id]['acao'], 
@@ -54,20 +57,23 @@ class instaciaPoderes():
             duracao = self.jPoderes[id]['duracao'],
             tipo    = ''
         )
-        
+        poder.modificadores = modif
         poder.addCusto(self.jPoderes[id]['custo'])
         poder.addGrad(int(nivel))
-        pNome = self.jPoderes[id]['NomePoder']
+
         self.jPoderes[id] = poder.devolveDic()
+
+        self.jPoderes[id]['modificadores'] = modif
         self.jPoderes[id]['NomePoder'] = pNome
-        
-    # def _instanciaBase():
-    #     pass
+
     
     def EfeitoList(self):
         return(self.efeitosList)
 
-    def addModify(self, id, modID): # modificar futuramente com lista
+    def addModify(self, id, modID, gradMod): # modificar futuramente com lista
+        pNome = self.jPoderes[id]['NomePoder']
+        modif = self.jPoderes[id]['modificadores']
+        
         poder = Efeito.EfeitoPadrao(
             eNome    = self.jPoderes[id]['nomeEfeito'],
             acao    = self.jPoderes[id]['acao'], 
@@ -78,21 +84,29 @@ class instaciaPoderes():
         
         poder.addCusto(self.jPoderes[id]['custo'])
         poder.graduacao = self.jPoderes[id]['graduacao']
-        pNome = self.jPoderes[id]['NomePoder']
+        
 
         if modID != None:
             if(modID[0] == 'A'):
                 # Ataque
-                jMod = dirModifi['ataque'][modID]
+                jMod = json.loads(open(dirModifi, mode='r', encoding='utf-8').read())['ataque'][modID]
+                # jMod['ataque'][modID]
+            
                 print(jMod)
                 poder.addModificador(
-                #     tipo   = jMod['tipo']
-                #     eNome  = jMod['nome']
-                #     custo  = jMod['custo']
+                    tipo   = jMod['calculo'],
+                    eNome  = jMod['nome'],
+                    custo  = jMod['custo']
+                    
                 )
+                # poder
 
-        self.jPoderes[id]['NomePoder'] = pNome
+        # self.jPoderes[id]['NomePoder'] = pNome
         self.jPoderes[id] = poder.devolveDic()
+        self.jPoderes[id]['NomePoder'] = pNome
+        self.jPoderes[id]['modificadores'] = modif
+
+        return(jMod)
 
 
 # Instanciadora de Pericias
@@ -156,11 +170,11 @@ class instanciadora():
     
     poderes = {}
     nome = ""
-    def __init__(self, new = False, ficha={}):
+    def __init__(self, new = True, ficha={}):
         # Instaciar do Zero
-        if new == False:
+        if new == True:
             self.jHabili = json.loads(open(dirHabilir, 'r', encoding="utf-8").read())
-
+            self.poderes = instaciaPoderes()
             self.pericia = intanciaPerica(jHabili = self.jHabili)
             self.pericia.montaPericias()
             
@@ -169,12 +183,15 @@ class instanciadora():
             self.jHabili = ficha['habilidades']
             self.nome = ficha['name']
 
+            self.poderes = instaciaPoderes()
+            self.poderes.jPoderes = ficha['poderes']
+
             self.pericia = intanciaPerica(jHabili = self.jHabili)
-            self.pericia.jPericias = ficha['habilidades']
+            self.pericia.jPericias = ficha['pericias']
             
         
         # Instancia Padrão
-        self.poderes = instaciaPoderes()
+        
 
         
     def bonusHabilidades(self, Habilistr, bonus):
@@ -191,11 +208,14 @@ class instanciadora():
 
         }
         return ficha
+    
+    def LoadFicha(self, ficaCarregada):
+        self.jHabili = ficaCarregada['habilidades']
+        self.nome = ficaCarregada['name']
 
-# intancie = instanciadora()
+        self.poderes = instaciaPoderes()
+        self.poderes.jPoderes = ficaCarregada['poderes']
 
-# # intancie.addPoder(nome='Condicionar', efeito='Aflição')
-# intancie.bonusHabilidades('FOR', 3)
-# print(intancie.jHabili)
-# intancie.pericia.addBonusPericia('P002', 2)
-# print (intancie.pericia.jPericias)
+        self.pericia = intanciaPerica(jHabili = self.jHabili)
+        self.pericia.jPericias = ficaCarregada['pericias']
+        return 1

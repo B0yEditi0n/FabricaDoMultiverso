@@ -72,6 +72,18 @@ def poderes():
         ficha.poderes.addNivelPoder( id=id, nivel=grad,)
     return ficha.poderes.jPoderes[id]
 
+@api.route('/delPoder/')
+def deletePoder():    
+    id = flask.request.args.get('id') 
+    try:
+        del ficha.poderes.jPoderes[id]    
+    except:
+        return('id inexistente')    
+
+    return('deletado Com suecessos')
+        
+        
+
 
 @api.route('/efeitos/')
 def efeitos():
@@ -80,11 +92,17 @@ def efeitos():
 @api.route('/modificadores/')
 def modificadores():
     modID       = flask.request.args.get('idMod') 
-    idPoder     = flask.request.args.get('idPoder') 
+    idPoder     = flask.request.args.get('idPoder')
+    nivel       = flask.request.args.get('valor')
     if modID == None:
         return ficha.poderes.modList
     else:
-        ficha.poderes.addModify(id=idPoder, modID=modID)
+        # try :
+        ficha.poderes.addModify(id=idPoder, modID=modID, gradMod=nivel)
+        # except:
+            # return('id desconhecido')
+        return(ficha.poderes.jPoderes[idPoder])
+
 
 ###########################################################
 
@@ -97,23 +115,26 @@ def postAPI():
         name = requests.post(
             f'{APIurl}.json',
             json = ficha.recebeJson()
-                      )
-        print (name)
-        return (f'postado!\n {ficha.recebeJson()}')
+        )
+        postResponse = json.loads(name.content)
+        return (postResponse['name'])
     
 @api.route('/get/')
 def getAPI():
-    APIurl = "https://fabrica-do-multiverso-default-rtdb.firebaseio.com/index"
+    APIurl = "https://fabrica-do-multiverso-default-rtdb.firebaseio.com/index/"
     diretorio = flask.request.args.get('dir')
     if diretorio != None:
-        # x = requests.get( APIurl + diretorio + '.json')        
-        pass
-        return('implemetação futura')
+        x = requests.get( APIurl + diretorio + '.json')        
+        LoadFicha = json.loads(x.content)
+
+        ficha.LoadFicha(ficaCarregada=LoadFicha)
+        return('sucesso')
+        
     else:
         currentDir  = os.path.dirname(os.path.realpath(__file__))
         dirFicha  = os.path.join(os.sep, currentDir, 'baixados.json')
         fileFicha = json.loads(open(dirFicha, mode='r', encoding='utf-8').read())
-        ficha = instanciadora(new=True, ficha=fileFicha)
+        # ficha = instanciadora(new=False, ficha=fileFicha)
         return fileFicha
 
 if __name__ == '__main__':
