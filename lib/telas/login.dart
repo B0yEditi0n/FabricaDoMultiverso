@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+
 import '../backend/_tmp/loginScript.dart';
 
 class loginPage extends StatefulWidget {
@@ -14,7 +15,26 @@ class loginPageScreen extends State<loginPage> {
   var inputEmail = TextEditingController();
   var inputSenha = TextEditingController();
 
+  loginUser(String user, ){
+    FirebaseAuth.instance
+      .signInWithEmailAndPassword(email: email, password: senha)
+      //Situações de Login
+      .then((res) {
+      //Login Efetuado com Sucesso
+      //Mensagem
+      // sucesso(context, 'Conta Logada Com Sucesso');
+
+      //Rota
+      Navigator.pushReplacementNamed(context, '/telaPrincipal');
+    }).catchError((e) {
+    //Erro no Login
+    // erro(context, 'Alguma Coisa está errada');
+    });
+      
+  }
+
   Widget build(BuildContext context) {
+    
     return Scaffold(
         appBar: AppBar(
           leading: const IconButton(
@@ -33,7 +53,6 @@ class loginPageScreen extends State<loginPage> {
             ),
           ],
         ),
-        
 
         body: Center(
           child: Align(
@@ -80,6 +99,7 @@ class loginPageScreen extends State<loginPage> {
                   ),
                   onPressed: () {
                     if(clLogin.inputLogin(inputEmail.text, inputSenha.text)){
+
                       Navigator.popAndPushNamed(context, '/telaInicio');
                     };
                     
@@ -87,7 +107,7 @@ class loginPageScreen extends State<loginPage> {
                   },
                   // clLogin.inputLogin( inputEmail, inputSenha),
                   child:
-                    const Text('Efetuar login'),  
+                    const Text('Efetuar login'),
                     
                 )
               ],

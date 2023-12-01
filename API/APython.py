@@ -1,16 +1,15 @@
+import sqlite3
 
-import os
-# Codigo Principal
+database = sqlite3.connect('Posts.db')
 
-from Modulos.Poderes import BibliotecaDeClasses as Efeito
+table = database.cursor()
 
-# Dano
-variavel = Efeito.EfeitoPadrao(
-    tipo='Ataque', 
-    nome='Dano', 
-    acao=1, 
-    alcance=1, 
-    duracao=1
-)
+table.execute("""CREATE TABLE index_palyers(
+              user TEXT, 
+              charactere TEXT,
+              post_name TEXT
+)""")
 
-
+database.commit()
+database.close()
+print('sucesso')

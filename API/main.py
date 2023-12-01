@@ -1,6 +1,6 @@
 # microserviçops
 # design pater IDE classes 
-
+import sqlite3
 import os
 import flask
 import flask_restful
@@ -109,22 +109,79 @@ def modificadores():
 
 @api.route('/post/')
 def postAPI():
+    # post em banco de dados
+    database = sqlite3.connect('Posts.db')
+    table = database.cursor()
+
     APIurl = "https://fabrica-do-multiverso-default-rtdb.firebaseio.com/index"
+
     x = requests.get( APIurl + '.json')
+
     if x.status_code == 200:
-        name = requests.post(
-            f'{APIurl}.json',
-            json = ficha.recebeJson()
-        )
-        postResponse = json.loads(name.content)
-        return (postResponse['name'])
-    
+
+        # checa se já existe algo postado
+        table.execute(f"SELECT * FROM index_palyers WHERE '{ficha.nome}'")
+
+        if len(table.fetchall()) <= 0:
+            # Efetua o Post no Firebase
+            name = requests.post(
+                f'{APIurl}.json',
+                json = ficha.recebeJson()
+            )
+
+            # Obtem a Reposta
+            postResponse = json.loads(name.content)
+
+            usuario = 'notImplemented'
+            keyAcess = postResponse['name']
+            
+            # Escreve no database novo personagem
+            instrucao = f"INSERT INTO index_palyers VALUES ( '{usuario}', '{ficha.nome}', '{keyAcess}')"
+            table.execute(instrucao)
+
+            database.commit()
+            database.close()
+
+            return (postResponse['name'])
+        else:
+            for r in table.fetchall():
+                name = requests.put(
+                    f'{APIurl}{r[2]}.json',
+                    json = ficha.recebeJson()
+                )
+
+            # Obtem a Reposta
+            postResponse = json.loads(name.content)
+            return (postResponse['name'])
+        
+
 @api.route('/get/')
 def getAPI():
     APIurl = "https://fabrica-do-multiverso-default-rtdb.firebaseio.com/index/"
-    diretorio = flask.request.args.get('dir')
-    if diretorio != None:
-        x = requests.get( APIurl + diretorio + '.json')        
+    # diretorio = flask.request.args.get('dir')
+    usuario = flask.request.args.get('user')
+    if usuario != None:
+        # Consulta SQL Lite       
+
+        database = sqlite3.connect('Posts.db')
+        table = database.cursor()
+
+        instrucao = "SELECT *"
+        instrucao += " FROM index_palyers"
+        # if usuario != None:
+            # instrucao += f"
+            #  WHERE charactere = {usuario}"
+        
+        table.execute(f"SELECT * FROM index_palyers WHERE charactere = '{usuario}'")
+
+        
+        resultSelect = table.fetchall()
+        
+        database.commit()
+        database.close()
+
+        for r in resultSelect:
+            x = requests.get( APIurl + r[2] + '.json')        
         LoadFicha = json.loads(x.content)
 
         ficha.LoadFicha(ficaCarregada=LoadFicha)
