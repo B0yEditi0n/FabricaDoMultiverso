@@ -1,0 +1,166 @@
+{
+    "EFECTS":
+        [
+            {
+                "ID": "E001",
+                "NOME": "Afli$4o"
+                
+            },
+            {
+                "ID": "E002",
+                "NOME": "Alongamento"
+            },
+            {
+                "ID": "E003",
+                "NOME": "Ambiente"
+            },
+            {
+                "ID": "E004",
+                "NOME": "Camuflagem"
+            },
+            {
+                "ID": "E005",
+                "NOME":"Caracter1stica"
+            },
+            {
+                "ID": "E006",
+                "NOME":"Caracter1stica Aumentada"
+            },
+            {
+                "ID": "E007",
+                "NOME":"Compreender"
+            },
+            {
+                "ID": "E008",
+                "NOME":"Comunica$4o"
+            },
+            {
+                "ID": "E009",
+                "NOME":"Controle de Sorte"
+            },
+            {
+                "ID": "E010",
+                "NOME":"Crescimento"
+            },
+            {
+                "ID": "E011",
+                "NOME":"Criar"
+            },
+            {
+                "ID": "E012",
+                "NOME":"Cura"
+            },
+            {
+                "ID": "E013",
+                "NOME":"Dano"
+            },
+            {
+                "ID": "E014",
+                "NOME":"Deflex4o"
+            },
+            {
+                "ID": "E015",
+                "NOME":"Encolhimento"
+            },
+            {
+                "ID": "E016",
+                "NOME":"Enfraquecer"
+            },
+            {
+                "ID": "E017",
+                "NOME":"Escava$4o"
+            },
+            {
+                "ID": "E018",
+                "NOME":"Ilus4o"
+            },
+            {
+                "ID": "E019",
+                "NOME":"Imortalidade"
+            },
+            {
+                "ID": "E020",
+                "NOME":"Imunidade"
+            },
+            {
+                "ID": "E021",
+                "NOME":"Intangibilidade"
+            },
+            {
+                "ID": "E022",
+                "NOME":"Invocar"
+            },
+            {
+                "ID": "E023",
+                "NOME":"Leitura Mental"
+            },
+            {
+                "ID": "E024",
+                "NOME":"Membros Extras"
+            },
+            {
+                "ID": "E025",
+                "NOME":"Morfar"
+            },
+            {
+                "ID": "E026",
+                "NOME":"Mover Objetos"
+            },
+            {
+                "ID": "E027",
+                "NOME":"Movimento"
+            },
+            {
+                "ID": "E028",
+                "NOME":"Nata$4o"
+            },
+            {
+                "ID": "E029",
+                "NOME":"Nulificar"
+            },
+            {
+                "ID": "E030",
+                "NOME":"Prote$4o"
+            },
+            {
+                "ID": "E031",
+                "NOME":"Rapidez"
+            },
+            {
+                "ID":"E032",
+                "NOME":"Regenera$4o"
+            },
+            {
+                "ID":"E033",
+                "NOME":"Salto"
+            },
+            {
+                "ID":"E034",
+                "NOME": "Sentido Remoto"
+            },
+            {
+                "ID":"E035",
+                "NOME": "Sentidos"
+            },
+            {
+                "ID": "E036",
+                "NOME": "Teleporte"
+            },         
+            {
+                "ID": "E037",
+                "NOME": "Transformar"
+            },
+            {
+                "ID": "E038",
+                "NOME": "Variável"
+            },
+            {
+                "ID": "E039",
+                "NOME": "Velocidade"
+            },
+            {
+                "ID": "E040",
+                "NOME": "Voo"
+            }
+        ]
+}
