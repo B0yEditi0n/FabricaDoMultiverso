@@ -3,7 +3,7 @@
         [
             {
                 "ID": "E001",
-                "NOME": "Afli$4o"
+                "NOME": "Aflição"
                 
             },
             {
@@ -32,7 +32,7 @@
             },
             {
                 "ID": "E008",
-                "NOME":"Comunica$4o"
+                "NOME":"Comunicação"
             },
             {
                 "ID": "E009",
@@ -56,7 +56,7 @@
             },
             {
                 "ID": "E014",
-                "NOME":"Deflex4o"
+                "NOME":"Deflexão"
             },
             {
                 "ID": "E015",
@@ -68,11 +68,11 @@
             },
             {
                 "ID": "E017",
-                "NOME":"Escava$4o"
+                "NOME":"Escavação"
             },
             {
                 "ID": "E018",
-                "NOME":"Ilus4o"
+                "NOME":"Ilusão"
             },
             {
                 "ID": "E019",
@@ -95,7 +95,7 @@
                 "NOME":"Leitura Mental"
             },
             {
-                "ID": "E024",
+                "ID": "E02ã",
                 "NOME":"Membros Extras"
             },
             {
@@ -112,7 +112,7 @@
             },
             {
                 "ID": "E028",
-                "NOME":"Nata$4o"
+                "NOME":"Natação"
             },
             {
                 "ID": "E029",
@@ -120,7 +120,7 @@
             },
             {
                 "ID": "E030",
-                "NOME":"Prote$4o"
+                "NOME":"Proteção"
             },
             {
                 "ID": "E031",
@@ -128,7 +128,7 @@
             },
             {
                 "ID":"E032",
-                "NOME":"Regenera$4o"
+                "NOME":"Regeneração"
             },
             {
                 "ID":"E033",

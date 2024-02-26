@@ -1,5 +1,13 @@
+import 'dart:async';
+import 'dart:io';
+import 'dart:convert';
+
+// import './efeitosLista.json' as efeitosJsonList;
+
+
 /* Classe de Modificadores */
 class Modificadores{
+  // final user = jsonDecode() as Map<String, dynamic>;
   String nome = '';
   int custo = 0;
   int parcial = 0;
@@ -29,6 +37,7 @@ class Modificadores{
 
 /* Classe de Construção dos Poderes */
 class Efeito{
+  
   String _idEfeito = '';
   String tipo = '';
 
@@ -71,15 +80,25 @@ class Efeito{
      4 - Contínuo 
   */
 
-  var modificadores = List<Object>;
+  var modificadores = [];//List<dynamic>
   
   // construtor
-  efeito(String efeito){
-    this._idEfeito = efeito;
-
+   Efeito(String idEfeito, String nomePoder) {
+    this._idEfeito = idEfeito;
+    this.nomeDoPoder = nomePoder;
+    
     // Busca Atributos Base
     
+  
+    
   }
+
+  carregaJson() async{ 
+    final File jsonEfeitos = File('./efeitosLista.json');
+    Future<String>  jsonSTR = jsonEfeitos.readAsString();
+    print(await jsonSTR);
+  } 
+
   addModificador(tipo, eNome, custo, modEfeito, parcial, descricao){
     /* instancia a class */
     var modificadorEfeito = new Modificadores();
@@ -107,19 +126,40 @@ class Efeito{
     // ...
     //
 
+  }
 
+  _processaCusto() async{
 
   }
+
+  devolveDic(){
+  Object  efeitoDic =  {
+            'nomeDoPoder': this.nomeDoPoder,
+            'nomeEfeito': this._efeitoBase,
+            'acao': this._acao,
+            'alcance': this._alcance,
+            'duracao': this._duracao,
+            'graduacao': this.Graduacao,
+            'custo': this._custoBase,
+            'pontos': this._processaCusto(),
+            'modificadores': this.modificadores
+        };
+        return efeitoDic;
+  }
   
+
 }
 
 
 class EfeitosOfensivos extends Efeito{
+
+  EfeitosOfensivos(super._idEfeito, super.nomePoder);
   int acerto = 0;
   int baseCD = 0;
 }
 
 class EfeitoDano extends EfeitosOfensivos{
+  EfeitoDano(super._idEfeito, super.nomePoder);
   efeitoDano(){
     this.baseCD = 15;
   }
@@ -127,6 +167,7 @@ class EfeitoDano extends EfeitosOfensivos{
 }
 
 class EfeitoOfensivo extends EfeitosOfensivos{
+  EfeitoOfensivo(super._idEfeito, super.nomePoder);
   efeitoOfensivo(){
     this.baseCD = 10;
   }
