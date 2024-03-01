@@ -3,8 +3,12 @@
         [
             {
                 "ID": "E001",
-                "NOME": "Aflição"
-                
+                "NOME": "Aflição",
+                "CUSTO_BASE": 1,
+                "ACAO": 1,
+                "ALCANCE": 1,
+                "DURACAO": 1
+
             },
             {
                 "ID": "E002",
@@ -52,7 +56,11 @@
             },
             {
                 "ID": "E013",
-                "NOME":"Dano"
+                "NOME":"Dano",
+                "CUSTO_BASE": 1,
+                "ACAO": 1,
+                "ALCANCE": 1,
+                "DURACAO": 1
             },
             {
                 "ID": "E014",
@@ -104,7 +112,11 @@
             },
             {
                 "ID": "E026",
-                "NOME":"Mover Objetos"
+                "NOME":"Mover Objetos",
+                "CUSTO_BASE": 1,
+                "ACAO": 1,
+                "ALCANCE": 2,
+                "DURACAO": 3
             },
             {
                 "ID": "E027",

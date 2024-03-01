@@ -47,7 +47,7 @@ class Efeito{
   /* Custo e Gradualção */
   int Graduacao = 0;
   int _custoBase = 0;
-  int _totalCusto = 0;
+  //int _totalCusto = 0;
 
   /* Valores de Efeito */
   int _acao = 0;
@@ -87,17 +87,41 @@ class Efeito{
     this._idEfeito = idEfeito;
     this.nomeDoPoder = nomePoder;
     
-    // Busca Atributos Base
     
-  
+    // Busca Atributos Base
+    this.carregaBase();
+
+  }
+
+  Future<bool> carregaBase() async{
+    final jsonObj = await this.carregaJson();
+    
+    var efeito = {};
+    for(var i = 0; i < jsonObj['EFECTS'].length; i++){
+      efeito = jsonObj['EFECTS'][i];
+      if(efeito['ID'] == _idEfeito){
+        break;
+      }
+    }
+
+    /* Prenche Atributos Base */
+    this._efeitoBase = efeito['NOME'];
+    this._custoBase = efeito['CUSTO_BASE'];
+    this._acao = efeito['ACAO'];
+    this._alcance = efeito['ALCANCE'];
+    this._duracao = efeito['DURACAO'];
+
+    return true;
     
   }
 
-  carregaJson() async{ 
-    final File jsonEfeitos = File('./efeitosLista.json');
-    Future<String>  jsonSTR = jsonEfeitos.readAsString();
-    print(await jsonSTR);
-  } 
+  Future carregaJson() async{
+    String currentDirectory = Directory.current.path;
+    var jsonEfeitos = await File('${currentDirectory}/Poderes/efeitosLista.json').readAsString();
+    var objetoJson = jsonDecode(jsonEfeitos);
+    return(objetoJson);
+    // print(await jsonSTR)
+  }
 
   addModificador(tipo, eNome, custo, modEfeito, parcial, descricao){
     /* instancia a class */
@@ -129,19 +153,22 @@ class Efeito{
   }
 
   _processaCusto() async{
+    /* Custo Básico */
+    var valor_do_efeito = _custoBase * Graduacao;
 
+    return (valor_do_efeito);
   }
 
-  devolveDic(){
+  devolveDic() async{
   Object  efeitoDic =  {
             'nomeDoPoder': this.nomeDoPoder,
-            'nomeEfeito': this._efeitoBase,
+            'efeito': this._efeitoBase,
             'acao': this._acao,
             'alcance': this._alcance,
             'duracao': this._duracao,
             'graduacao': this.Graduacao,
             'custo': this._custoBase,
-            'pontos': this._processaCusto(),
+            'pontos': await this._processaCusto(),
             'modificadores': this.modificadores
         };
         return efeitoDic;
@@ -173,7 +200,7 @@ class EfeitoOfensivo extends EfeitosOfensivos{
   }
 }
 
-/**1
+/**
  * Dicionario de Char Especiais
  */
 

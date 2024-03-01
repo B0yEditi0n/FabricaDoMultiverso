@@ -1,14 +1,25 @@
 /* teste de poderes */
 import 'Poderes/ClassPoderes.dart' as poderes;
-import 'dart:convert';
 
-main(){
-  var poder = new poderes.Efeito(
-    '001',
+main() async{
+  var poder = await new poderes.Efeito(
+    'E001',
     'Super Raio'
   );
-  poder.carregaJson();
+
+  await poder.carregaBase();
+  poder.Graduacao = 5;
   
-  print(poder.devolveDic());
+  print(await poder.devolveDic());
+
+  var MoverObjetos = await new poderes.Efeito(
+    'E026',
+    'Telecinese'
+  );
+
+  await MoverObjetos.carregaBase();
+  MoverObjetos.Graduacao = 7;
+
+  print(await MoverObjetos.devolveDic());
 
 }
