@@ -1,4 +1,9 @@
 import 'Poderes/ClassPoderes.dart' as efeitosList;
+
+class instanciadoraDePoderes{
+  
+}
+
 class Instanciadora{
   var nomePersonagem = "";
   var np = 10;

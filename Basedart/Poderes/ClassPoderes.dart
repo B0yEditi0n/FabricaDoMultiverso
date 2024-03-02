@@ -94,7 +94,7 @@ class Efeito{
   }
 
   Future<bool> carregaBase() async{
-    final jsonObj = await this.carregaJson();
+    final jsonObj = await this.carregaJson('efeitosLista');
     
     var efeito = {};
     for(var i = 0; i < jsonObj['EFECTS'].length; i++){
@@ -115,15 +115,15 @@ class Efeito{
     
   }
 
-  Future carregaJson() async{
+  Future carregaJson(json) async{
     String currentDirectory = Directory.current.path;
-    var jsonEfeitos = await File('${currentDirectory}/Poderes/efeitosLista.json').readAsString();
+    var jsonEfeitos = await File('${currentDirectory}/Poderes/${json}.json').readAsString();
     var objetoJson = jsonDecode(jsonEfeitos);
     return(objetoJson);
     // print(await jsonSTR)
   }
 
-  addModificador(tipo, eNome, custo, modEfeito, parcial, descricao){
+  Future<bool>  addModificador(modifcadorID =) async{
     /* instancia a class */
     var modificadorEfeito = new Modificadores();
     modificadorEfeito.nome = eNome;
