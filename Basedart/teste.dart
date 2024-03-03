@@ -10,7 +10,7 @@ main() async{
   await poder.carregaBase();
   poder.Graduacao = 5;
   
-  print(await poder.devolveDic());
+  
 
   var MoverObjetos = await new poderes.Efeito(
     'E026',

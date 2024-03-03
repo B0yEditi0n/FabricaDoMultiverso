@@ -2,177 +2,177 @@
     "EFECTS":
         [
             {
-                "ID": "E001",
-                "NOME": "Aflição",
-                "CUSTO_BASE": 1,
-                "ACAO": 1,
-                "ALCANCE": 1,
-                "DURACAO": 1
+                "id": "E001",
+                "efeito": "Aflição",
+                "custo_base": 1,
+                "acao": 1,
+                "alcance": 1,
+                "duracao": 1
 
             },
             {
-                "ID": "E002",
-                "NOME": "Alongamento"
+                "id": "E002",
+                "efeito": "Alongamento"
             },
             {
-                "ID": "E003",
-                "NOME": "Ambiente"
+                "id": "E003",
+                "efeito": "Ambiente"
             },
             {
-                "ID": "E004",
-                "NOME": "Camuflagem"
+                "id": "E004",
+                "efeito": "Camuflagem"
             },
             {
-                "ID": "E005",
-                "NOME":"Caracter1stica"
+                "id": "E005",
+                "efeito":"Caracter1stica"
             },
             {
-                "ID": "E006",
-                "NOME":"Caracter1stica Aumentada"
+                "id": "E006",
+                "efeito":"Caracter1stica Aumentada"
             },
             {
-                "ID": "E007",
-                "NOME":"Compreender"
+                "id": "E007",
+                "efeito":"Compreender"
             },
             {
-                "ID": "E008",
-                "NOME":"Comunicação"
+                "id": "E008",
+                "efeito":"Comunicação"
             },
             {
-                "ID": "E009",
-                "NOME":"Controle de Sorte"
+                "id": "E009",
+                "efeito":"Controle de Sorte"
             },
             {
-                "ID": "E010",
-                "NOME":"Crescimento"
+                "id": "E010",
+                "efeito":"Crescimento"
             },
             {
-                "ID": "E011",
-                "NOME":"Criar"
+                "id": "E011",
+                "efeito":"Criar"
             },
             {
-                "ID": "E012",
-                "NOME":"Cura"
+                "id": "E012",
+                "efeito":"Cura"
             },
             {
-                "ID": "E013",
-                "NOME":"Dano",
-                "CUSTO_BASE": 1,
-                "ACAO": 1,
-                "ALCANCE": 1,
-                "DURACAO": 1
+                "id": "E013",
+                "efeito":"Dano",
+                "custo_base": 1,
+                "acao": 1,
+                "alcance": 1,
+                "duracao": 1
             },
             {
-                "ID": "E014",
-                "NOME":"Deflexão"
+                "id": "E014",
+                "efeito":"Deflexão"
             },
             {
-                "ID": "E015",
-                "NOME":"Encolhimento"
+                "id": "E015",
+                "efeito":"Encolhimento"
             },
             {
-                "ID": "E016",
-                "NOME":"Enfraquecer"
+                "id": "E016",
+                "efeito":"Enfraquecer"
             },
             {
-                "ID": "E017",
-                "NOME":"Escavação"
+                "id": "E017",
+                "efeito":"Escavação"
             },
             {
-                "ID": "E018",
-                "NOME":"Ilusão"
+                "id": "E018",
+                "efeito":"Ilusão"
             },
             {
-                "ID": "E019",
-                "NOME":"Imortalidade"
+                "id": "E019",
+                "efeito":"Imortalidade"
             },
             {
-                "ID": "E020",
-                "NOME":"Imunidade"
+                "id": "E020",
+                "efeito":"Imunidade"
             },
             {
-                "ID": "E021",
-                "NOME":"Intangibilidade"
+                "id": "E021",
+                "efeito":"Intangibilidade"
             },
             {
-                "ID": "E022",
-                "NOME":"Invocar"
+                "id": "E022",
+                "efeito":"Invocar"
             },
             {
-                "ID": "E023",
-                "NOME":"Leitura Mental"
+                "id": "E023",
+                "efeito":"Leitura Mental"
             },
             {
-                "ID": "E02ã",
-                "NOME":"Membros Extras"
+                "id": "E02ã",
+                "efeito":"Membros Extras"
             },
             {
-                "ID": "E025",
-                "NOME":"Morfar"
+                "id": "E025",
+                "efeito":"Morfar"
             },
             {
-                "ID": "E026",
-                "NOME":"Mover Objetos",
-                "CUSTO_BASE": 1,
-                "ACAO": 1,
-                "ALCANCE": 2,
-                "DURACAO": 3
+                "id": "E026",
+                "efeito":"Mover Objetos",
+                "custo_base": 1,
+                "acao": 1,
+                "alcance": 2,
+                "duracao": 3
             },
             {
-                "ID": "E027",
-                "NOME":"Movimento"
+                "id": "E027",
+                "efeito":"Movimento"
             },
             {
-                "ID": "E028",
-                "NOME":"Natação"
+                "id": "E028",
+                "efeito":"Natação"
             },
             {
-                "ID": "E029",
-                "NOME":"Nulificar"
+                "id": "E029",
+                "efeito":"Nulificar"
             },
             {
-                "ID": "E030",
-                "NOME":"Proteção"
+                "id": "E030",
+                "efeito":"Proteção"
             },
             {
-                "ID": "E031",
-                "NOME":"Rapidez"
+                "id": "E031",
+                "efeito":"Rapidez"
             },
             {
-                "ID":"E032",
-                "NOME":"Regeneração"
+                "id":"E032",
+                "efeito":"Regeneração"
             },
             {
-                "ID":"E033",
-                "NOME":"Salto"
+                "id":"E033",
+                "efeito":"Salto"
             },
             {
-                "ID":"E034",
-                "NOME": "Sentido Remoto"
+                "id":"E034",
+                "efeito": "Sentido Remoto"
             },
             {
-                "ID":"E035",
-                "NOME": "Sentidos"
+                "id":"E035",
+                "efeito": "Sentidos"
             },
             {
-                "ID": "E036",
-                "NOME": "Teleporte"
+                "id": "E036",
+                "efeito": "Teleporte"
             },         
             {
-                "ID": "E037",
-                "NOME": "Transformar"
+                "id": "E037",
+                "efeito": "Transformar"
             },
             {
-                "ID": "E038",
-                "NOME": "Variável"
+                "id": "E038",
+                "efeito": "Variável"
             },
             {
-                "ID": "E039",
-                "NOME": "Velocidade"
+                "id": "E039",
+                "efeito": "Velocidade"
             },
             {
-                "ID": "E040",
-                "NOME": "Voo"
+                "id": "E040",
+                "efeito": "Voo"
             }
         ]
 }

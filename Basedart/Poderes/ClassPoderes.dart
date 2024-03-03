@@ -83,35 +83,18 @@ class Efeito{
   var modificadores = [];//List<dynamic>
   
   // construtor
-   Efeito(String idEfeito, String nomePoder) {
-    this._idEfeito = idEfeito;
-    this.nomeDoPoder = nomePoder;
-    
+   Efeito(Map<String,dynamic> ObjPoder) {
+    this._idEfeito = ObjPoder['idEfeito'];
+    this.nomeDoPoder = ObjPoder['nomeDoPoder'];
     
     // Busca Atributos Base
-    this.carregaBase();
+    this._efeitoBase = ObjPoder['efeito'];
+    this._custoBase = ObjPoder['custo_base'];
+    this._acao = ObjPoder['acao'];
+    this._alcance = ObjPoder['alcance'];
+    this._duracao = ObjPoder['duracao'];
 
-  }
-
-  Future<bool> carregaBase() async{
-    final jsonObj = await this.carregaJson('efeitosLista');
-    
-    var efeito = {};
-    for(var i = 0; i < jsonObj['EFECTS'].length; i++){
-      efeito = jsonObj['EFECTS'][i];
-      if(efeito['ID'] == _idEfeito){
-        break;
-      }
-    }
-
-    /* Prenche Atributos Base */
-    this._efeitoBase = efeito['NOME'];
-    this._custoBase = efeito['CUSTO_BASE'];
-    this._acao = efeito['ACAO'];
-    this._alcance = efeito['ALCANCE'];
-    this._duracao = efeito['DURACAO'];
-
-    return true;
+    // return true;
     
   }
 
@@ -123,25 +106,25 @@ class Efeito{
     // print(await jsonSTR)
   }
 
-  Future<bool>  addModificador(modifcadorID =) async{
-    /* instancia a class */
-    var modificadorEfeito = new Modificadores();
-    modificadorEfeito.nome = eNome;
-    modificadorEfeito.custo = custo;
-    modificadorEfeito.parcial = parcial;
-    modificadorEfeito.descricao = descricao;
-    /*
-      EG - Extra por Graduação
-      EF - Extra Fixo
-      FG - Falha por Graduação
-      FF - Falha Fixa
-    */
-    if (tipo == 'EG' || tipo == 'FG'){
-      modificadorEfeito.fixo = false;
-    }
-    else if (tipo == 'EF' || tipo == 'FF'){
-      modificadorEfeito.fixo = true;
-    }
+  // Future<bool> addModificador(String modificadorID) async{
+  //   /* instancia a class */
+  //   var modificadorEfeito = new Modificadores();
+  //   modificadorEfeito.nome = eNome;
+  //   modificadorEfeito.custo = custo;
+  //   modificadorEfeito.parcial = parcial;
+  //   modificadorEfeito.descricao = descricao;
+  //   /*
+  //     EG - Extra por Graduação
+  //     EF - Extra Fixo
+  //     FG - Falha por Graduação
+  //     FF - Falha Fixa
+  //   */
+  //   if (tipo == 'EG' || tipo == 'FG'){
+  //     modificadorEfeito.fixo = false;
+  //   }
+  //   else if (tipo == 'EF' || tipo == 'FF'){
+  //     modificadorEfeito.fixo = true;
+  //   }
     
     /* 
       Futuramente implementar modificação de funcionamento
@@ -149,8 +132,8 @@ class Efeito{
     //
     // ...
     //
-
-  }
+  //   return true
+  // }
 
   _processaCusto() async{
     /* Custo Básico */
@@ -162,6 +145,7 @@ class Efeito{
   devolveDic() async{
   Object  efeitoDic =  {
             'nomeDoPoder': this.nomeDoPoder,
+            'id': this._idEfeito,
             'efeito': this._efeitoBase,
             'acao': this._acao,
             'alcance': this._alcance,
@@ -180,13 +164,13 @@ class Efeito{
 
 class EfeitosOfensivos extends Efeito{
 
-  EfeitosOfensivos(super._idEfeito, super.nomePoder);
+  EfeitosOfensivos(super.ObjPoder);
   int acerto = 0;
   int baseCD = 0;
 }
 
 class EfeitoDano extends EfeitosOfensivos{
-  EfeitoDano(super._idEfeito, super.nomePoder);
+  EfeitoDano(super.ObjPoder);
   efeitoDano(){
     this.baseCD = 15;
   }
@@ -194,7 +178,7 @@ class EfeitoDano extends EfeitosOfensivos{
 }
 
 class EfeitoOfensivo extends EfeitosOfensivos{
-  EfeitoOfensivo(super._idEfeito, super.nomePoder);
+  EfeitoOfensivo(super.ObjPoder);
   efeitoOfensivo(){
     this.baseCD = 10;
   }
