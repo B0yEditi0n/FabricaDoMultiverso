@@ -2,7 +2,7 @@
     "EFECTS":
         [
             {
-                "id": "E001",
+                "e_id": "E001",
                 "efeito": "Aflição",
                 "custo_base": 1,
                 "acao": 1,
@@ -11,51 +11,51 @@
 
             },
             {
-                "id": "E002",
+                "e_id": "E002",
                 "efeito": "Alongamento"
             },
             {
-                "id": "E003",
+                "e_id": "E003",
                 "efeito": "Ambiente"
             },
             {
-                "id": "E004",
+                "e_id": "E004",
                 "efeito": "Camuflagem"
             },
             {
-                "id": "E005",
+                "e_id": "E005",
                 "efeito":"Caracter1stica"
             },
             {
-                "id": "E006",
+                "e_id": "E006",
                 "efeito":"Caracter1stica Aumentada"
             },
             {
-                "id": "E007",
+                "e_id": "E007",
                 "efeito":"Compreender"
             },
             {
-                "id": "E008",
+                "e_id": "E008",
                 "efeito":"Comunicação"
             },
             {
-                "id": "E009",
+                "e_id": "E009",
                 "efeito":"Controle de Sorte"
             },
             {
-                "id": "E010",
+                "e_id": "E010",
                 "efeito":"Crescimento"
             },
             {
-                "id": "E011",
+                "e_id": "E011",
                 "efeito":"Criar"
             },
             {
-                "id": "E012",
+                "e_id": "E012",
                 "efeito":"Cura"
             },
             {
-                "id": "E013",
+                "e_id": "E013",
                 "efeito":"Dano",
                 "custo_base": 1,
                 "acao": 1,
@@ -63,55 +63,55 @@
                 "duracao": 1
             },
             {
-                "id": "E014",
+                "e_id": "E014",
                 "efeito":"Deflexão"
             },
             {
-                "id": "E015",
+                "e_id": "E015",
                 "efeito":"Encolhimento"
             },
             {
-                "id": "E016",
+                "e_id": "E016",
                 "efeito":"Enfraquecer"
             },
             {
-                "id": "E017",
+                "e_id": "E017",
                 "efeito":"Escavação"
             },
             {
-                "id": "E018",
+                "e_id": "E018",
                 "efeito":"Ilusão"
             },
             {
-                "id": "E019",
-                "efeito":"Imortalidade"
+                "e_id": "E019",
+                "efeito":"Imortale_idade"
             },
             {
-                "id": "E020",
-                "efeito":"Imunidade"
+                "e_id": "E020",
+                "efeito":"Imune_idade"
             },
             {
-                "id": "E021",
-                "efeito":"Intangibilidade"
+                "e_id": "E021",
+                "efeito":"Intangibile_idade"
             },
             {
-                "id": "E022",
+                "e_id": "E022",
                 "efeito":"Invocar"
             },
             {
-                "id": "E023",
+                "e_id": "E023",
                 "efeito":"Leitura Mental"
             },
             {
-                "id": "E02ã",
+                "e_id": "E02ã",
                 "efeito":"Membros Extras"
             },
             {
-                "id": "E025",
+                "e_id": "E025",
                 "efeito":"Morfar"
             },
             {
-                "id": "E026",
+                "e_id": "E026",
                 "efeito":"Mover Objetos",
                 "custo_base": 1,
                 "acao": 1,
@@ -119,59 +119,59 @@
                 "duracao": 3
             },
             {
-                "id": "E027",
+                "e_id": "E027",
                 "efeito":"Movimento"
             },
             {
-                "id": "E028",
+                "e_id": "E028",
                 "efeito":"Natação"
             },
             {
-                "id": "E029",
+                "e_id": "E029",
                 "efeito":"Nulificar"
             },
             {
-                "id": "E030",
+                "e_id": "E030",
                 "efeito":"Proteção"
             },
             {
-                "id": "E031",
-                "efeito":"Rapidez"
+                "e_id": "E031",
+                "efeito":"Rape_idez"
             },
             {
-                "id":"E032",
+                "e_id":"E032",
                 "efeito":"Regeneração"
             },
             {
-                "id":"E033",
+                "e_id":"E033",
                 "efeito":"Salto"
             },
             {
-                "id":"E034",
-                "efeito": "Sentido Remoto"
+                "e_id":"E034",
+                "efeito": "Sente_ido Remoto"
             },
             {
-                "id":"E035",
-                "efeito": "Sentidos"
+                "e_id":"E035",
+                "efeito": "Sente_idos"
             },
             {
-                "id": "E036",
+                "e_id": "E036",
                 "efeito": "Teleporte"
             },         
             {
-                "id": "E037",
+                "e_id": "E037",
                 "efeito": "Transformar"
             },
             {
-                "id": "E038",
+                "e_id": "E038",
                 "efeito": "Variável"
             },
             {
-                "id": "E039",
-                "efeito": "Velocidade"
+                "e_id": "E039",
+                "efeito": "Veloce_idade"
             },
             {
-                "id": "E040",
+                "e_id": "E040",
                 "efeito": "Voo"
             }
         ]

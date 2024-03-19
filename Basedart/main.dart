@@ -7,7 +7,7 @@ import 'dart:convert';
 import 'Poderes/ClassPoderes.dart' as efeitosList;
 
 class instanciadoraDePoderes {
-  var Efeitos = [];
+  List<efeitosList.Efeito> Efeitos = [];
   var listaEfeitos = {};
   var listaModificadores = {};
 
@@ -32,14 +32,14 @@ class instanciadoraDePoderes {
     var efetios = this.listaEfeitos["EFECTS"];
     
     for (var i =0; i< efetios.length;i++) {
-      if(efetios[i]["id"] == efeitoID){
+      if(efetios[i]["e_id"] == efeitoID){
         var objEfeito = efetios[i];
 
         // Inicia nova Instancia
         objEfeito["nomeDoPoder"] = nome;
-        var poder = efeitosList.Efeito(objEfeito);
-        poder.devolveDic();
         
+        var poder = efeitosList.Efeito(objEfeito);
+        this.Efeitos.add(poder);
 
       }
     }
@@ -72,7 +72,7 @@ class Instanciadora{
 void main() async{
   final controladora = new Instanciadora();
   await controladora.Inicializar();
-  controladora.instanciaPoderes.addPoder('E001');
+  controladora.instanciaPoderes.addPoder('E001', 'Super Ataque');
 
   //controladora.addPodeeres();
 }

@@ -84,7 +84,7 @@ class Efeito{
   
   // construtor
    Efeito(Map<String,dynamic> ObjPoder) {
-    this._idEfeito = ObjPoder['idEfeito'];
+    this._idEfeito = ObjPoder['e_id'];
     this.nomeDoPoder = ObjPoder['nomeDoPoder'];
     
     // Busca Atributos Base
@@ -145,7 +145,7 @@ class Efeito{
   devolveDic() async{
   Object  efeitoDic =  {
             'nomeDoPoder': this.nomeDoPoder,
-            'id': this._idEfeito,
+            'e_id': this._idEfeito,
             'efeito': this._efeitoBase,
             'acao': this._acao,
             'alcance': this._alcance,
