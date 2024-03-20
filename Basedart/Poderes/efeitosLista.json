@@ -8,8 +8,39 @@
                 "acao": 1,
                 "alcance": 1,
                 "duracao": 1,
-                "tipo": "atk"
+                "tipo": "atk",
+				"modificadores":[
+					{
+                        "id":"MA001",
+						"nome":"Cumulativo",
+                        "extra": true,
+                        "fixo": false,
+                        "custo": 1
+					},
+					{
+                        "id":"MA002",
+					    "nome":"Progressivo",
+                        "extra": true,
+                        "fixo": false,
+                        "valor": 2
+					},
+                    {
+                        "id":"MA003",
+					    "nome":"Grau Limitado",
+                        "extra": false,
+                        "fixo": false,
+                        "valor": 1
+					},
+                    {
+                        "id":"MA004",
+					    "nome":"Recuperação Instantânea",
+                        "extra": false,
+                        "fixo": false,
+                        "valor": 1
+					}
 
+				]
+					
             },
             {
                 "e_id": "E002",
