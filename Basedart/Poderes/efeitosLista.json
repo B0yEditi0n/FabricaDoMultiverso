@@ -7,16 +7,19 @@
                 "custo_base": 1,
                 "acao": 1,
                 "alcance": 1,
-                "duracao": 1
+                "duracao": 1,
+                "tipo": "atk"
 
             },
             {
                 "e_id": "E002",
-                "efeito": "Alongamento"
+                "efeito": "Alongamento",
+                "tipo": "gnr"
             },
             {
                 "e_id": "E003",
-                "efeito": "Ambiente"
+                "efeito": "Ambiente",
+                "tipo": "atk"
             },
             {
                 "e_id": "E004",
@@ -40,7 +43,8 @@
             },
             {
                 "e_id": "E009",
-                "efeito":"Controle de Sorte"
+                "efeito":"Controle de Sorte",
+                "tipo": "atk"
             },
             {
                 "e_id": "E010",
@@ -48,11 +52,13 @@
             },
             {
                 "e_id": "E011",
-                "efeito":"Criar"
+                "efeito":"Criar",
+                "tipo": "atk"
             },
             {
                 "e_id": "E012",
-                "efeito":"Cura"
+                "efeito":"Cura",
+                "tipo": "atk"
             },
             {
                 "e_id": "E013",
@@ -60,11 +66,13 @@
                 "custo_base": 1,
                 "acao": 1,
                 "alcance": 1,
-                "duracao": 1
+                "duracao": 1,
+                "tipo": "atk"
             },
             {
                 "e_id": "E014",
-                "efeito":"Deflexão"
+                "efeito":"Deflexão",
+                "tipo": "atk"
             },
             {
                 "e_id": "E015",
@@ -72,27 +80,29 @@
             },
             {
                 "e_id": "E016",
-                "efeito":"Enfraquecer"
+                "efeito":"Enfraquecer",
+                "tipo": "atk"
             },
             {
                 "e_id": "E017",
-                "efeito":"Escavação"
+                "efeito":"Escavação",
             },
             {
                 "e_id": "E018",
-                "efeito":"Ilusão"
+                "efeito":"Ilusão",
+                "tipo": "atk"
             },
             {
                 "e_id": "E019",
-                "efeito":"Imortale_idade"
+                "efeito":"Imortalidade"
             },
             {
                 "e_id": "E020",
-                "efeito":"Imune_idade"
+                "efeito":"Imunidade"
             },
             {
                 "e_id": "E021",
-                "efeito":"Intangibile_idade"
+                "efeito":"Intangibilidade"
             },
             {
                 "e_id": "E022",
@@ -116,7 +126,8 @@
                 "custo_base": 1,
                 "acao": 1,
                 "alcance": 2,
-                "duracao": 3
+                "duracao": 3,
+                "tipo": "atk"
             },
             {
                 "e_id": "E027",
@@ -128,7 +139,8 @@
             },
             {
                 "e_id": "E029",
-                "efeito":"Nulificar"
+                "efeito":"Nulificar",
+                "tipo": "atk"
             },
             {
                 "e_id": "E030",
@@ -136,7 +148,7 @@
             },
             {
                 "e_id": "E031",
-                "efeito":"Rape_idez"
+                "efeito":"Rapidez"
             },
             {
                 "e_id":"E032",
@@ -148,11 +160,11 @@
             },
             {
                 "e_id":"E034",
-                "efeito": "Sente_ido Remoto"
+                "efeito": "Sentido Remoto"
             },
             {
                 "e_id":"E035",
-                "efeito": "Sente_idos"
+                "efeito": "Sentidos"
             },
             {
                 "e_id": "E036",
@@ -168,7 +180,7 @@
             },
             {
                 "e_id": "E039",
-                "efeito": "Veloce_idade"
+                "efeito": "Velocidade"
             },
             {
                 "e_id": "E040",
