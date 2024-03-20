@@ -1,5 +1,6 @@
 // Base
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 import 'dart:convert';
 
@@ -7,7 +8,10 @@ import 'dart:convert';
 import 'Poderes/ClassPoderes.dart' as efeitosList;
 
 class instanciadoraDePoderes {
-  List<efeitosList.Efeito> Efeitos = [];
+  // Lista Objeto dos Poderes
+  List<efeitosList.Efeito> poderes = [];
+
+  // Atributo Objetos
   var listaEfeitos = {};
   var listaModificadores = {};
 
@@ -38,12 +42,29 @@ class instanciadoraDePoderes {
         // Inicia nova Instancia
         objEfeito["nomeDoPoder"] = nome;
         
-        var poder = efeitosList.Efeito(objEfeito);
-        this.Efeitos.add(poder);
+        var poderObj = efeitosList.Efeito(objEfeito);
+        
+        // Define o ID
+        poderObj.idPoder = 'P_${this.poderes.length + 1}';
+
+        this.poderes.add(poderObj);
 
       }
     }
     return true;
+  }
+
+  addModificador(){
+
+  }
+
+  deletaPoder(String poderID){
+    final listaPoderes = this.poderes;
+    listaPoderes.removeWhere((poder) => poder.idPoder == poderID);
+  }
+
+  deleteModificador(){
+    
   }
 
 }
@@ -74,5 +95,5 @@ void main() async{
   await controladora.Inicializar();
   controladora.instanciaPoderes.addPoder('E001', 'Super Ataque');
 
-  //controladora.addPodeeres();
+  controladora.instanciaPoderes.deletaPoder('P_1');
 }

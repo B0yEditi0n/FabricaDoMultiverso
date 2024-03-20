@@ -37,7 +37,7 @@ class Modificadores{
 
 /* Classe de Construção dos Poderes */
 class Efeito{
-  
+  String idPoder = '';
   String _idEfeito = '';
   String tipo = '';
 
@@ -98,42 +98,9 @@ class Efeito{
     
   }
 
-  Future carregaJson(json) async{
-    String currentDirectory = Directory.current.path;
-    var jsonEfeitos = await File('${currentDirectory}/Poderes/${json}.json').readAsString();
-    var objetoJson = jsonDecode(jsonEfeitos);
-    return(objetoJson);
-    // print(await jsonSTR)
-  }
-
-  // Future<bool> addModificador(String modificadorID) async{
-  //   /* instancia a class */
-  //   var modificadorEfeito = new Modificadores();
-  //   modificadorEfeito.nome = eNome;
-  //   modificadorEfeito.custo = custo;
-  //   modificadorEfeito.parcial = parcial;
-  //   modificadorEfeito.descricao = descricao;
-  //   /*
-  //     EG - Extra por Graduação
-  //     EF - Extra Fixo
-  //     FG - Falha por Graduação
-  //     FF - Falha Fixa
-  //   */
-  //   if (tipo == 'EG' || tipo == 'FG'){
-  //     modificadorEfeito.fixo = false;
-  //   }
-  //   else if (tipo == 'EF' || tipo == 'FF'){
-  //     modificadorEfeito.fixo = true;
-  //   }
+  addModificador(){
     
-    /* 
-      Futuramente implementar modificação de funcionamento
-     */
-    //
-    // ...
-    //
-  //   return true
-  // }
+  }
 
   _processaCusto() async{
     /* Custo Básico */
@@ -145,7 +112,7 @@ class Efeito{
   devolveDic() async{
   Object  efeitoDic =  {
             'nomeDoPoder': this.nomeDoPoder,
-            'e_id': this._idEfeito,
+            // 'id': this._idEfeito,
             'efeito': this._efeitoBase,
             'acao': this._acao,
             'alcance': this._alcance,
