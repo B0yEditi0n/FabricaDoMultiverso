@@ -33,29 +33,42 @@ class instanciadoraDePoderes {
   }
 
   Future<bool> addPoder(String efeitoID, String nome) async{
-    var efetios = this.listaEfeitos["EFECTS"];
+    List efeitos = this.listaEfeitos["EFECTS"];
     
-    for (var i =0; i< efetios.length;i++) {
-      if(efetios[i]["e_id"] == efeitoID){
-        var objEfeito = efetios[i];
+    var objEfeito = efeitos[efeitos.indexWhere((efeito) => efeito["e_id"] == efeitoID)];
+    // Inicia nova Instancia
+    objEfeito["nomeDoPoder"] = nome;
+    
+    var poderObj = efeitosList.Efeito(objEfeito);
+    
+    // Define o ID
+    poderObj.idPoder = 'P_${this.poderes.length + 1}';
 
-        // Inicia nova Instancia
-        objEfeito["nomeDoPoder"] = nome;
-        
-        var poderObj = efeitosList.Efeito(objEfeito);
-        
-        // Define o ID
-        poderObj.idPoder = 'P_${this.poderes.length + 1}';
+    this.poderes.add(poderObj);
 
-        this.poderes.add(poderObj);
-
-      }
-    }
+    
     return true;
   }
 
-  addModificador(){
-
+  addModificador(String poderID, String modificadorID){
+    var poder = this.poderes[this.poderes.indexWhere((poder) => poder.idPoder == poderID)];
+    // Identifica se o modificador é genérico ou especifico
+    
+    if (modificadorID.substring(0,3) == 'ME'){
+      // Modificador Especifico
+      int modIndex = poder.modificadores.indexWhere((modificador) => modificador["id"] == modificadorID);
+      var ObjModificador = poder.modificadores[modIndex];
+    }else{
+      // Modificador Geral
+      switch (poder.tipo) {
+        case "atk":
+          // var ObjModificador = listaEfeitos["Geral"];    
+          break;
+        default:
+      }
+      
+    };
+    
   }
 
   deletaPoder(String poderID){
@@ -66,7 +79,6 @@ class instanciadoraDePoderes {
   deleteModificador(){
     
   }
-
 }
 
 class Instanciadora{

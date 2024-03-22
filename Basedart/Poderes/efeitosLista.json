@@ -11,28 +11,28 @@
                 "tipo": "atk",
 				"modificadores":[
 					{
-                        "id":"MA001",
+                        "id":"ME001",
 						"nome":"Cumulativo",
                         "extra": true,
                         "fixo": false,
                         "custo": 1
 					},
 					{
-                        "id":"MA002",
+                        "id":"ME002",
 					    "nome":"Progressivo",
                         "extra": true,
                         "fixo": false,
                         "valor": 2
 					},
                     {
-                        "id":"MA003",
+                        "id":"ME003",
 					    "nome":"Grau Limitado",
                         "extra": false,
                         "fixo": false,
                         "valor": 1
 					},
                     {
-                        "id":"MA004",
+                        "id":"ME004",
 					    "nome":"Recuperação Instantânea",
                         "extra": false,
                         "fixo": false,
@@ -116,7 +116,7 @@
             },
             {
                 "e_id": "E017",
-                "efeito":"Escavação",
+                "efeito":"Escavação"
             },
             {
                 "e_id": "E018",

@@ -1,4 +1,15 @@
 {
+    "ATK":[
+        {
+            "id":"MG001",
+            "nome":"Afeta Intangível",
+            "extra": true,
+            "fixo": true,
+            "limite": 2,
+            "valor": 1
+        }
+    ],
+    
     "GERAL":[
         {
             "ID":"M001",

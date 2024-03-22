@@ -80,7 +80,7 @@ class Efeito{
      4 - Contínuo 
   */
 
-  var modificadores = [];//List<dynamic>
+  List modificadores = [];//List<dynamic>
   
   // construtor
    Efeito(Map<String,dynamic> ObjPoder) {
@@ -94,12 +94,15 @@ class Efeito{
     this._alcance = ObjPoder['alcance'];
     this._duracao = ObjPoder['duracao'];
 
+    // Preenche com os Modificadores Base
+    this.modificadores = ObjPoder["modificadores"];
+
     // return true;
     
   }
 
   addModificador(){
-    
+
   }
 
   _processaCusto() async{
@@ -112,7 +115,7 @@ class Efeito{
   devolveDic() async{
   Object  efeitoDic =  {
             'nomeDoPoder': this.nomeDoPoder,
-            // 'id': this._idEfeito,
+            'e_id': this._idEfeito,
             'efeito': this._efeitoBase,
             'acao': this._acao,
             'alcance': this._alcance,
