@@ -5,35 +5,35 @@ import 'dart:convert';
 // import './efeitosLista.json' as efeitosJsonList;
 
 
-/* Classe de Modificadores */
-class Modificadores{
-  // final user = jsonDecode() as Map<String, dynamic>;
-  String nome = '';
-  int custo = 0;
-  int parcial = 0;
-  String descricao = '';
+// /* Classe de Modificadores */
+// class Modificadores{
+//   // final user = jsonDecode() as Map<String, dynamic>;
+//   String nome = '';
+//   int custo = 0;
+//   int parcial = 0;
+//   String descricao = '';
 
-  /* Se custo são por Rank ou fixos */
-  bool fixo = false;
+//   /* Se custo são por Rank ou fixos */
+//   bool fixo = false;
 
-  processaDic(){
-    var objReturn = {};
-    objReturn['nome'] = this.nome;
-    objReturn['descricao'] = this.descricao;
+//   processaDic(){
+//     var objReturn = {};
+//     objReturn['nome'] = this.nome;
+//     objReturn['descricao'] = this.descricao;
     
-    if (this.fixo){
-      objReturn['custoGrad'] = 0;
-      objReturn['custoFixo'] = this.custo;
-    }else{
-      objReturn['custoGrad'] = this.custo;
-      objReturn['custoFixo'] = 0;
-    }
+//     if (this.fixo){
+//       objReturn['custoGrad'] = 0;
+//       objReturn['custoFixo'] = this.custo;
+//     }else{
+//       objReturn['custoGrad'] = this.custo;
+//       objReturn['custoFixo'] = 0;
+//     }
     
-    objReturn['parcial'] = this.parcial;
+//     objReturn['parcial'] = this.parcial;
             
-    return (objReturn);    
-  }
-}
+//     return (objReturn);    
+//   }
+// }
 
 /* Classe de Construção dos Poderes */
 class Efeito{
@@ -93,9 +93,10 @@ class Efeito{
     this._acao = ObjPoder['acao'];
     this._alcance = ObjPoder['alcance'];
     this._duracao = ObjPoder['duracao'];
+    this.tipo = ObjPoder['tipo'];
 
     // Preenche com os Modificadores Base
-    this.modificadores = ObjPoder["modificadores"];
+    // this.modificadores = ObjPoder["modificadores"];
 
     // return true;
     
@@ -123,7 +124,8 @@ class Efeito{
             'graduacao': this.Graduacao,
             'custo': this._custoBase,
             'pontos': await this._processaCusto(),
-            'modificadores': this.modificadores
+            'modificadores': this.modificadores,
+            'tipo': this.tipo
         };
         return efeitoDic;
   }

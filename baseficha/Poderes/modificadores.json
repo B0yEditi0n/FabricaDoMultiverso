@@ -30,7 +30,7 @@
             "Nome": "Afeta Intangível",
             "custo": 1,
             "fixo": true,
-            "limite": "2"
+            "limite": 2
 
         },
         {
@@ -38,49 +38,49 @@
             "Nome": "Afeta Objetos",
             "custo": 1,
             "fixo": false,
-            "limite": "1"
+            "limite": 1
         },
         {
             "ID":"M005",
             "Nome": "Afeta Objetos Apenas",
             "custo": 0,
             "fixo": false,
-            "limite": "1"
+            "limite": 1
         },
         {
             "ID":"M007",
             "Nome": "Afeta Outros",
             "custo": 1,
             "fixo": false,
-            "limite": "1"
+            "limite": 1
         },
         {
             "ID":"M007",
             "Nome": "Afeta Outros Apenas",
             "custo": 0,
             "fixo": false,
-            "limite": "1"
+            "limite": 1
         },
         {
             "ID":"M008",
             "Nome": "Alcance",
             "custo": 1,
             "fixo": true,
-            "limite": "NO"
+            "limite": 0
         },
         {
             "ID":"M009",
             "Nome": "Alcance Aumentado",
             "custo": 1,
             "fixo": false,
-            "limite": "NO"
+            "limite": 0
         },
         {
             "ID": "M010",
             "Nome": "Alcance Aumentado",
             "custo": 1,
             "fixo": false,
-            "limite": "NO"
+            "limite": 0
         }
     ]
 }
