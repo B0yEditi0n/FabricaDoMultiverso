@@ -34,7 +34,6 @@ class instanciadoraDePoderes {
 
   Future<String> addPoder(String efeitoID, String nome) async{
     List efeitos = this.listaEfeitos["EFECTS"];
-    
     var objEfeito = efeitos[efeitos.indexWhere((efeito) => efeito["e_id"] == efeitoID)];
     // Inicia nova Instancia
     objEfeito["nomeDoPoder"] = nome;
@@ -61,7 +60,9 @@ class instanciadoraDePoderes {
       // Modificador Geral
       switch (poder.tipo) {
         case "atk":
-          var ObjModificador = listaEfeitos["Geral"][listaEfeitos["Geral"].indexWhere((modificador)=>(modificador))];    
+          ObjModificador = listaModificadores["GERAL"][listaModificadores["GERAL"].indexWhere(
+            (modificador) => ( modificador["ID"] == modificadorID )
+          )];    
           print(ObjModificador);
           break;
         default:
@@ -110,7 +111,7 @@ class instanciadoraDePoderes {
     }
     
     // Anexa Modificador ao Poder
-    
+    poder.modificadores.add(ObjModificador);
   }
 
   deletaPoder(String poderID){
