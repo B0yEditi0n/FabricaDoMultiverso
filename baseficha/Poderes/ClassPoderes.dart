@@ -94,11 +94,7 @@ class Efeito{
     this._alcance = ObjPoder['alcance'];
     this._duracao = ObjPoder['duracao'];
     this.tipo = ObjPoder['tipo'];
-
-    // Preenche com os Modificadores Base
-    // this.modificadores = ObjPoder["modificadores"];
-
-    // return true;
+    
     
   }
 
@@ -129,7 +125,24 @@ class Efeito{
         };
         return efeitoDic;
   }
+
+  /********************************************
+   * Metodos de Alteração de Atributos Padrão *
+   ********************************************/
+
+  void alteraAction(){
+
+  }
   
+  void alteraRange(){
+
+  }
+
+  
+
+  void alteraDuracao(){
+
+  }
 
 }
 
