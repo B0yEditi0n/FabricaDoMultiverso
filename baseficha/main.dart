@@ -157,8 +157,12 @@ void main() async{
   var poderid = await controladora.instanciaPoderes.addPoder('E001', 'Super Ataque');
   controladora.instanciaPoderes.addModificador(poderid, 'M003', 2);
   
-  print(controladora.instanciaPoderes.poderes[0].modificadores);
+  //print(controladora.instanciaPoderes.poderes[0].modificadores);
   // controladora.instanciaPoderes.deletaPoder('P_1');
   controladora.instanciaPoderes.addModificador(poderid, 'M003', 1);
-  print(controladora.instanciaPoderes.poderes[0].modificadores);
+
+  controladora.instanciaPoderes.poderes[0].alteraAction(4);
+  
+  print(await controladora.instanciaPoderes.poderes[0].imprimeJSON());
+  // print(controladora.instanciaPoderes.poderes[0].modificadores);
 }

@@ -82,8 +82,18 @@ class Efeito{
 
   List modificadores = [];//List<dynamic>
   
+  Map<String,dynamic> optDefault ={
+    // Objeto de armazenamento de default
+    "custo_base": -1,
+    "acao": -1,
+    "alcance": -1,
+    "duracao":-1
+  };
+
+  
+  
   // construtor
-   Efeito(Map<String,dynamic> ObjPoder) {
+  Efeito(Map<String,dynamic> ObjPoder) {
     this._idEfeito = ObjPoder['e_id'];
     this.nomeDoPoder = ObjPoder['nomeDoPoder'];
     
@@ -94,8 +104,13 @@ class Efeito{
     this._alcance = ObjPoder['alcance'];
     this._duracao = ObjPoder['duracao'];
     this.tipo = ObjPoder['tipo'];
-    
-    
+
+    /* para validações e calculo de custo
+    o valores padrão devem ser armazenados */
+    this.optDefault["custo_base"] = ObjPoder['custo_base'];
+    this.optDefault["acao"] = ObjPoder['acao'];
+    this.optDefault["alcance"] = ObjPoder['alcance'];
+    this.optDefault["duracao"] = ObjPoder['duracao'];
   }
 
   addModificador(){
@@ -109,7 +124,59 @@ class Efeito{
     return (valor_do_efeito);
   }
 
-  devolveDic() async{
+  /********************************************
+   * Metodos de Alteração de Atributos Padrão *
+   ********************************************/
+
+  alteraAction(vlrAction){
+    int defaultAction = this.optDefault["acao"];
+    switch (defaultAction) {
+      
+      case 1: // Ação Padrão
+        /* Ação Padrão só pode chegar a Reação e  */
+        if(vlrAction == 1 || vlrAction == 4){
+          this._acao = vlrAction;
+        }
+        break;
+      case 2: // Ação Movimento
+        /* Ação de movimento podem ser jogadas 
+        apenas para padrão */
+        if(vlrAction == 1){
+         this._acao = vlrAction;
+        }
+      case 3: // Ação Livre
+        /* ação livre pode */
+        if(vlrAction == 1 || vlrAction == 2 || vlrAction == 3){
+          this._acao = vlrAction;
+        }
+        break;
+      case 4: // Ação de Reação
+        /* só não pode ser nenhuma */
+        if(vlrAction == 1 || vlrAction == 2 || vlrAction == 3 || vlrAction == 4){
+          this._acao = vlrAction;
+        }
+    }
+
+    /* Alteração no custo */
+    var valorCusto = this._acao - defaultAction;
+
+    int custoPadrao = this.optDefault["custo_base"];
+    this._custoBase = custoPadrao + valorCusto;
+  }
+  
+  alteraRange(){
+
+  }
+
+  
+
+  alteraDuracao(){
+
+  }
+
+
+
+  imprimeJSON() async{
   Object  efeitoDic =  {
             'nomeDoPoder': this.nomeDoPoder,
             'e_id': this._idEfeito,
@@ -125,25 +192,6 @@ class Efeito{
         };
         return efeitoDic;
   }
-
-  /********************************************
-   * Metodos de Alteração de Atributos Padrão *
-   ********************************************/
-
-  void alteraAction(){
-
-  }
-  
-  void alteraRange(){
-
-  }
-
-  
-
-  void alteraDuracao(){
-
-  }
-
 }
 
 
